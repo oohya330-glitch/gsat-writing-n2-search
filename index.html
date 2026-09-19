@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>115 N2 學測模擬考 看圖寫作（查找資料）</title>
+<style>
+:root{--bg:#e9f0f4;--card:#fff;--ink:#20313d;--muted:#4d606c;--blue:#2f6486;--blue2:#e8f1f7;--line:#c8d7e0;--shadow:0 8px 24px rgba(35,58,72,.10);--radius:18px}
+*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font-family:"Microsoft YaHei","Noto Sans TC",system-ui,sans-serif;line-height:1.75;font-size:18px}
+button{font:inherit}.wrap{width:min(1120px,calc(100% - 32px));margin:0 auto;padding:28px 0 44px}.hero{text-align:center;padding:18px 12px 24px}.hero h1{font-size:clamp(32px,3.7vw,50px);line-height:1.28;margin:0 0 12px;color:#173f58;font-weight:800;letter-spacing:.01em}.hero p{margin:0;color:var(--muted);font-size:clamp(17px,1.7vw,21px)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:clamp(22px,3vw,38px);margin:0 0 22px}.page{display:none}.page.active{display:block}.section-title{font-size:clamp(27px,2.8vw,36px);margin:0 0 18px;color:#173f58;font-weight:800}.lead{font-size:clamp(20px,2vw,24px);font-weight:700;color:#294b60}.muted{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:start}.grid.two{grid-template-columns:repeat(2,1fr)}.choice,.home-choice,.toggle{width:100%;border:2px solid var(--line);background:#fff;color:var(--ink);border-radius:15px;padding:18px;text-align:left;cursor:pointer;transition:.15s}.choice:hover,.home-choice:hover,.toggle:hover{border-color:#8eafc3}.choice.selected{border-color:var(--blue);background:var(--blue2);box-shadow:0 0 0 2px rgba(47,100,134,.08)}.choice strong,.home-choice strong{display:block;font-size:1.08em;margin-bottom:4px}.home-choice{text-align:center;padding:26px}.home-choice .btn{margin-top:14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:12px;background:var(--blue);color:#fff;padding:12px 22px;font-weight:700;cursor:pointer;min-height:50px}.btn.secondary{background:#fff;color:var(--blue);border:2px solid var(--blue)}.btn:disabled{opacity:.35;cursor:default}.nav{display:flex;gap:12px;justify-content:space-between;align-items:center;margin-top:24px}.nav .mid{margin-left:auto;margin-right:auto}.subpanel{margin-top:22px;padding-top:20px;border-top:1px dashed var(--line)}.hidden{display:none!important}.summary{background:#f5f8fa;border-left:5px solid var(--blue);padding:16px 18px;border-radius:10px;margin:16px 0}.summary b{color:var(--blue)}
+.task{font-size:clamp(18px,1.7vw,21px)}.task strong{color:#173f58}.visuals{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0}.visual{border:1px solid var(--line);border-radius:16px;padding:20px;text-align:center;background:#f8fafb}.icon{font-size:46px;line-height:1.2}.visual b{display:block;margin-top:8px}
+.support{margin-top:16px}.toggle{text-align:center;font-weight:700;color:var(--blue);background:#f8fbfd}.support-body{padding:18px 4px 2px}.chunk{padding:10px 0;border-bottom:1px solid #e5ecef}.chunk:last-child{border-bottom:0}.chunk .en{font-size:1.08em;font-weight:800;color:#173f58}.essay{white-space:pre-line;background:#f8fafb;border:1px solid var(--line);border-radius:14px;padding:20px;font-size:clamp(17px,1.55vw,20px)}.filter{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px}.filter button{border:2px solid var(--line);background:#fff;border-radius:999px;padding:10px 16px;cursor:pointer;font-weight:700}.filter button.selected{border-color:var(--blue);background:var(--blue2);color:#173f58}.done{text-align:center;padding:28px}.done strong{font-size:clamp(22px,2.2vw,30px)}
+
+.idea-card{width:100%;align-self:start;border:2px solid var(--line);background:#fff;border-radius:16px;text-align:left;overflow:hidden;transition:.15s}.idea-card.open{border-color:var(--blue);background:var(--blue2);box-shadow:0 0 0 2px rgba(47,100,134,.08)}.idea-head{width:100%;border:0;background:transparent;color:#173f58;padding:22px 24px;text-align:left;cursor:pointer;font-weight:800;font-size:clamp(22px,2vw,28px);line-height:1.45}.idea-detail{padding:0 24px 22px;color:#294b60;font-size:clamp(19px,1.65vw,23px);line-height:1.65}.idea-detail .label{display:block;color:var(--blue);font-weight:800;font-size:.9em;margin-bottom:5px}.material-list{display:grid;gap:10px;margin-top:10px}.material-item{padding:10px 0;border-bottom:1px solid #dce6ec}.material-item:last-child{border-bottom:0}.material-item .main{font-weight:800;color:#173f58}.paper-note{display:inline-flex;align-items:center;width:auto;max-width:100%;padding:8px 14px;border-radius:999px;background:#eef4f7;color:#294b60;font-weight:700}.support .toggle{width:auto;min-width:170px;padding:12px 24px;display:inline-flex;justify-content:center}.choice{font-size:clamp(21px,1.9vw,27px);font-weight:800;line-height:1.45}.choice strong,.home-choice strong{font-size:clamp(23px,2vw,29px);font-weight:800}.choice .muted,.home-choice .muted{font-size:clamp(18px,1.55vw,22px);font-weight:700;color:#405866}.summary{font-size:clamp(18px,1.55vw,22px)}
+.material-select{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:16px 0 18px}.material-select button:last-child:nth-child(odd){grid-column:1 / -1;width:calc(50% - 7px);justify-self:center}.material-select button{min-height:82px;border:2px solid var(--line);background:#fff;color:#173f58;border-radius:15px;padding:14px 16px;font-size:clamp(18px,1.55vw,22px);font-weight:800;line-height:1.35;cursor:pointer}.material-select button.selected{border-color:var(--blue);background:var(--blue2);box-shadow:0 0 0 2px rgba(47,100,134,.08)}.selected-chunks{margin-top:14px;padding:16px 18px;background:#f8fbfd;border-radius:14px}.selected-chunks-title{font-weight:800;color:var(--blue);margin-bottom:6px}.selected-chunks .material-item{font-size:clamp(18px,1.55vw,22px)}
+
+/* v22: writing-support layout uses horizontal space on classroom screens */
+.selected-chunks{margin-top:14px;padding:16px 18px;background:#f8fbfd;border-radius:14px}
+.selected-chunks-title{font-weight:800;color:var(--blue);margin-bottom:10px}
+.support-groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 30px;align-items:start}
+.support-group{min-width:0}
+.support-group.center-last{grid-column:1 / -1;width:calc(50% - 15px);justify-self:center}
+.support-group .material-item{font-size:clamp(18px,1.55vw,22px);min-width:0}
+.support-group .material-item:last-child{border-bottom:0}
+@media(max-width:760px){.support-groups{grid-template-columns:1fr}.support-group.center-last{grid-column:auto;width:100%;justify-self:stretch}}
+@media(max-width:760px){.material-select{grid-template-columns:1fr}.material-select button{min-height:auto}}
+@media(max-width:760px){body{font-size:17px}.wrap{width:min(100% - 20px,1120px);padding-top:14px}.grid,.grid.two,.visuals{grid-template-columns:1fr}.card{padding:20px 17px}.nav{gap:8px}.nav .btn{padding:10px 13px;min-width:0}.hero{padding-top:8px}.choice,.home-choice{padding:16px}.icon{font-size:40px}}
+@media(min-width:1400px){body{font-size:20px}.wrap{width:min(1240px,calc(100% - 64px))}.choice,.home-choice{padding:24px}.card{padding:42px}}
+.paper-note{font-size:.95rem;margin:.65rem 0;color:var(--muted);font-weight:600}
+
+/* v4: classroom large-screen readability */
+.choice{font-size:clamp(21px,1.9vw,27px);font-weight:700;line-height:1.5;padding:22px 24px}
+.choice strong{font-size:clamp(23px,2.05vw,29px);font-weight:800;line-height:1.4;margin-bottom:8px}
+.choice .muted{font-size:clamp(20px,1.75vw,25px);font-weight:650;line-height:1.55;color:#405767}
+.summary{font-size:clamp(20px,1.75vw,25px);line-height:1.65}
+.summary b{font-weight:800}.summary br{line-height:1.9}
+.support{display:flex;flex-direction:column;align-items:flex-start}
+.toggle{width:auto;min-width:180px;max-width:100%;padding:13px 28px;text-align:center;font-size:clamp(18px,1.45vw,21px);font-weight:800}
+.support-body{width:100%}
+
+.idea-card{width:100%;align-self:start;border:2px solid var(--line);background:#fff;border-radius:16px;text-align:left;overflow:hidden;transition:.15s}.idea-card.open{border-color:var(--blue);background:var(--blue2);box-shadow:0 0 0 2px rgba(47,100,134,.08)}.idea-head{width:100%;border:0;background:transparent;color:#173f58;padding:22px 24px;text-align:left;cursor:pointer;font-weight:800;font-size:clamp(22px,2vw,28px);line-height:1.45}.idea-detail{padding:0 24px 22px;color:#294b60;font-size:clamp(19px,1.65vw,23px);line-height:1.65}.idea-detail .label{display:block;color:var(--blue);font-weight:800;font-size:.9em;margin-bottom:5px}.material-list{display:grid;gap:10px;margin-top:10px}.material-item{padding:10px 0;border-bottom:1px solid #dce6ec}.material-item:last-child{border-bottom:0}.material-item .main{font-weight:800;color:#173f58}.paper-note{display:inline-flex;align-items:center;width:auto;max-width:100%;padding:8px 14px;border-radius:999px;background:#eef4f7;color:#294b60;font-weight:700}.support .toggle{width:auto;min-width:170px;padding:12px 24px;display:inline-flex;justify-content:center}.choice{font-size:clamp(21px,1.9vw,27px);font-weight:800;line-height:1.45}.choice strong,.home-choice strong{font-size:clamp(23px,2vw,29px);font-weight:800}.choice .muted,.home-choice .muted{font-size:clamp(18px,1.55vw,22px);font-weight:700;color:#405866}.summary{font-size:clamp(18px,1.55vw,22px)}
+@media(max-width:760px){.choice{font-size:19px;padding:18px}.choice strong{font-size:21px}.choice .muted{font-size:18px}.summary{font-size:18px}.toggle{min-width:150px;padding:12px 22px}}
+@media(min-width:1400px){.choice{font-size:28px;padding:26px 28px}.choice strong{font-size:30px}.choice .muted{font-size:26px}.summary{font-size:25px}.toggle{font-size:22px;min-width:200px}}
+
+
+#methodChoices{align-items:stretch}
+#methodChoices .choice{height:100%}
+.optional-note{margin:16px 0;padding:14px 16px;border-radius:12px;background:#f5f8fa;color:#405866;font-size:clamp(18px,1.5vw,21px);font-weight:650}
+@media(max-width:760px){#methodChoices .choice{height:auto}}
+
+/* v11 visual consistency */
+.idea-head{min-height:112px;display:flex;align-items:center}
+.material-item .label{display:block;color:var(--blue);font-weight:800;font-size:.9em;margin:0 0 6px}
+.material-item .label + .main{display:block;margin-top:2px}
+.method-name{font-weight:800;color:#2f6486}
+.hw-activity{cursor:pointer;border:2px solid var(--line);transition:.15s}
+.hw-activity.open{border-color:var(--blue);background:var(--blue2);box-shadow:0 0 0 2px rgba(47,100,134,.08)}
+.hw-activity .activity-head{min-height:118px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.hw-activity .activity-body{text-align:left;border-top:1px solid #dce6ec;padding:18px 22px 22px}
+.hw-activity .activity-body .label{display:block;color:var(--blue);font-weight:800;margin:12px 0 5px}
+.hw-activity .activity-body .label:first-child{margin-top:0}
+.hw-activity .activity-body ul{margin:6px 0 10px;padding-left:1.4em}
+.hw-activity .model-toggle{margin-top:16px}
+.model-switch{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}
+.model-switch button{border:2px solid var(--line);background:#fff;border-radius:14px;padding:14px 12px;font-weight:800;color:#173f58;cursor:pointer;min-height:58px}
+.model-switch button.selected{border-color:var(--blue);background:var(--blue2)}
+.done-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:18px}
+@media(max-width:760px){.idea-head{min-height:auto}.hw-activity .activity-head{min-height:auto;padding:16px 0}.model-switch{grid-template-columns:1fr}}
+
+/* v12 layout and interaction refinements */
+.idea-card:not(.open) .idea-head{height:122px;min-height:122px}
+.method-name{font-weight:800;color:#3f718e}
+.phrase-panel{width:min(860px,100%);margin:24px auto 0;text-align:left}
+.phrase-panel .phrase-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:30px}
+.phrase-panel>strong{display:block;margin-bottom:8px;color:#173f58;font-size:1.05em}
+.model-panels{display:grid;gap:18px;margin-top:16px}
+.model-panel{display:none;background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px}
+.model-panel.open{display:block}
+.model-panel h3{margin:0 0 14px;color:#173f58;font-size:clamp(22px,2vw,28px)}
+.model-switch button{height:68px;font-size:clamp(21px,1.8vw,27px);font-weight:800}
+.done-actions .btn{width:150px}
+.hw-activity:not(.open) .activity-head{height:136px;min-height:136px}
+.hw-activity.open{align-self:start}
+.hw-activity.open .activity-head{height:136px;min-height:136px}
+.hw-activity .activity-body{cursor:default}
+.hw-activity .activity-body .toggle{cursor:pointer}
+.modal-backdrop{position:fixed;inset:0;background:rgba(28,48,60,.42);display:none;align-items:center;justify-content:center;padding:24px;z-index:9999}
+.modal-backdrop.open{display:flex}
+.model-modal{width:min(1180px,96vw);max-height:90vh;overflow:auto;background:#fff;border-radius:20px;box-shadow:0 18px 60px rgba(20,42,55,.28);padding:28px}
+.model-modal-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px}
+.model-modal-head h2{margin:0;color:#173f58;font-size:clamp(24px,2.5vw,34px)}
+.modal-close-x{border:0;background:transparent;color:#567080;font-size:34px;line-height:1;cursor:pointer;padding:4px 8px}
+.model-modal-grid{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(280px,.9fr);gap:18px;align-items:start}
+.model-modal .essay{font-size:clamp(18px,1.55vw,21px);line-height:1.8}
+.model-modal .phrase-panel{width:100%;margin:0;background:#f8fafb;border:1px solid var(--line);border-radius:14px;padding:18px}
+.model-modal .phrase-panel .phrase-grid{grid-template-columns:1fr}
+.model-modal-actions{text-align:center;margin-top:20px}
+@media(max-width:760px){
+ .idea-card:not(.open) .idea-head{height:auto;min-height:auto}
+ .phrase-panel .phrase-grid{grid-template-columns:1fr}
+ .done-actions .btn{width:145px}
+ .hw-activity:not(.open) .activity-head,.hw-activity.open .activity-head{height:auto;min-height:auto}
+ .modal-backdrop{padding:0}
+ .model-modal{width:100vw;height:100vh;max-height:100vh;border-radius:0;padding:20px 16px}
+ .model-modal-grid{grid-template-columns:1fr}
+}
+
+/* v13: large-screen essay readability + bottom close control for homework cards */
+.essay{font-weight:600}
+.model-modal .essay{font-weight:600}
+.hw-card-actions{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;margin-top:18px}
+.hw-card-actions .toggle{margin-top:0;flex:none;min-width:0;min-height:58px;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap}
+.hw-card-actions .model-toggle{width:min(100%,270px)}
+.hw-card-actions .close-card{width:104px;min-height:46px;padding:8px 16px;background:#f3f7f9;color:var(--blue);border:1.5px solid #9fb9c9}
+@media(max-width:760px){.hw-card-actions .model-toggle{width:min(100%,280px)}.hw-card-actions .close-card{width:104px;min-height:46px;padding:8px 16px}}
+
+/* v17: homework cards remain compact; guidance opens in a wide modal */
+.hw-activity,.hw-activity.open{align-self:stretch;background:#fff;border-color:var(--line);box-shadow:none}
+.hw-activity .activity-head,.hw-activity.open .activity-head,.hw-activity:not(.open) .activity-head{height:136px;min-height:136px;cursor:pointer}
+.hw-guidance-grid{display:grid;grid-template-columns:minmax(0,1.22fr) minmax(320px,1fr);gap:24px;align-items:stretch}
+.hw-guidance-panel{background:#f8fafb;border:1px solid var(--line);border-radius:16px;padding:22px 24px;text-align:left;height:100%;box-sizing:border-box}
+.hw-guidance-panel h3{margin:0 0 14px;color:#2f6486;font-size:clamp(21px,1.8vw,27px)}
+.hw-guidance-panel ul{margin:0;padding-left:1.45em;font-size:clamp(18px,1.45vw,21px);line-height:1.75}
+.hw-guidance-panel .chunk{padding:11px 0;border-bottom:1px solid #dce6ec}
+.hw-guidance-panel .chunk:last-child{border-bottom:0}
+.hw-guidance-panel .chunk b{display:block;color:#173f58;font-size:clamp(18px,1.45vw,21px);line-height:1.45}
+.hw-guidance-panel .chunk span{display:block;margin-top:3px;font-size:clamp(17px,1.35vw,20px)}
+.hw-guidance-actions{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:22px}
+.hw-guidance-actions .model-toggle{width:min(100%,300px);min-height:58px}
+.hw-guidance-actions .close-card{width:104px;min-height:46px;padding:8px 16px;background:#f3f7f9;color:var(--blue);border:1.5px solid #9fb9c9}
+@media(max-width:760px){.hw-guidance-grid{grid-template-columns:1fr}.hw-activity .activity-head,.hw-activity.open .activity-head,.hw-activity:not(.open) .activity-head{height:auto;min-height:auto;padding:18px 0}}
+
+/* v18: clearer model tabs + one bottom close control */
+.model-panel-close{display:flex;justify-content:center;margin-top:20px}
+.model-panel-close .toggle{min-width:112px;width:auto;padding:9px 22px;border-color:#b7cbd8;background:#f4f8fa;color:#315f7a}
+@media(min-width:1400px){.model-switch button{font-size:28px;height:72px}}
+@media(max-width:760px){.model-switch button{font-size:21px;height:auto;min-height:58px}}
+
+/* v19: completion navigation and single-open teaching cards */
+.done-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.done-actions .btn{width:160px;min-width:160px}
+@media(max-width:620px){.done-actions{flex-direction:column;align-items:center}.done-actions .btn{width:min(100%,260px)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero"><h1>115 N2 學測模擬考 看圖寫作（查找資料）</h1><p>先整理想法，再完成自己的文章。需要協助時，可以查看提示。</p></header>
+
+<section id="home" class="page active">
+  <div class="grid two">
+    <div class="card home-choice"><strong>課堂示範</strong><div>查找資料</div><p class="muted">跟著提示發展想法，完成兩段寫作。</p><button class="btn" onclick="go(1)">開始練習</button></div>
+    <div class="card home-choice"><strong>回家作業</strong><div>Learning by Doing</div><p class="muted">運用練習過的方法，自己完成另一篇作文。</p><button class="btn" onclick="go('hw')">開始作業</button></div>
+  </div>
+  <div style="text-align:center;margin-top:20px"><a class="btn secondary" href="#" onclick="return false">← 互動寫作</a></div>
+</section>
+
+<section id="p1" class="page"><div class="card">
+<h2 class="section-title">1. 看懂題目</h2>
+<div class="task">隨著科技的蓬勃發展，人們查找資料的方式在過去幾十年來明顯改變，有別於過去到圖書館找相關書籍，越來越多年輕人選擇更有效率的方式來搜尋需要的資料。請以此為主題，並參照下列圖片，寫一篇英文作文，文章分兩段。第一段請選擇你偏愛的資料搜尋方式並說明原因。第二段請說明該方式的缺點及可能的解決方法。</div>
+<div class="visuals"><div class="visual"><div class="icon">📚</div><b>書籍／圖書館</b></div><div class="visual"><div class="icon">🔎</div><b>搜尋引擎</b></div><div class="visual"><div class="icon">💬</div><b>AI 工具</b></div></div>
+<div class="summary"><b>第一段：</b>選擇偏愛的資料搜尋方式，並說明原因。<br><b>第二段：</b>說明這個方式的缺點及可能的解決方法。</div>
+<div class="nav"><button class="btn secondary" onclick="go('home')">← 上一頁</button><button class="btn secondary mid" onclick="go('home')">回首頁</button><button class="btn" onclick="go(2)">下一頁 →</button></div>
+</div></section>
+
+<section id="p2" class="page"><div class="card">
+<h2 class="section-title">2. 選擇查找方式</h2><p class="lead">你比較喜歡使用哪一種方式查找資料？</p>
+<div class="grid" id="methodChoices"></div><div class="optional-note">需要提示時，可以先選一種方式查看相關材料；也可以不選，直接使用自己的想法。</div>
+<div class="nav"><button class="btn secondary" onclick="go(1)">← 上一頁</button><button class="btn secondary mid" onclick="go('home')">回首頁</button><button id="p2next" class="btn" onclick="go(3)">下一頁 →</button></div>
+</div></section>
+
+<section id="p3" class="page"><div class="card">
+<h2 class="section-title">3. 發展第一段</h2><p class="lead" id="reasonQ"></p><p class="muted">可以逐一點開理由，看看每個想法可以如何進一步說明。</p><div class="grid two" id="reasonChoices"></div>
+<div class="nav"><button class="btn secondary" onclick="go(2)">← 上一頁</button><button class="btn secondary mid" onclick="go('home')">回首頁</button><button id="p3next" class="btn" onclick="go(4)">下一頁 →</button></div>
+</div></section>
+
+<section id="p4" class="page"><div class="card">
+<h2 class="section-title">4. 完成第一段</h2><p class="lead">選擇你想使用的理由。可以選一個、兩個、全部，也可以完全不選。</p><div id="sum1" class="summary"></div><p class="paper-note">✍️ 紙筆完成</p>
+<div class="nav"><button class="btn secondary" onclick="go(3)">← 上一頁</button><button class="btn secondary mid" onclick="go('home')">回首頁</button><button class="btn" onclick="go(5)">下一頁 →</button></div>
+</div></section>
+
+<section id="p5" class="page"><div class="card">
+<h2 class="section-title">5. 發展第二段</h2><p class="lead">這個方式可能有什麼缺點？</p><p class="muted">可以點開一個或多個缺點，查看說明與可能的解決方法。</p><div class="grid two" id="drawChoices"></div>
+<div class="nav"><button class="btn secondary" onclick="go(4)">← 上一頁</button><button class="btn secondary mid" onclick="go('home')">回首頁</button><button id="p5next" class="btn" onclick="go(6)">下一頁 →</button></div>
+</div></section>
+
+<section id="p6" class="page"><div class="card">
+<h2 class="section-title">6. 完成第二段</h2><p class="lead">選擇你想使用的缺點。可以選一個、兩個、全部，也可以完全不選。</p><div id="sum2" class="summary"></div><p class="paper-note">✍️ 紙筆完成</p>
+<div class="nav"><button class="btn secondary" onclick="go(5)">← 上一頁</button><button class="btn secondary mid" onclick="go('home')">回首頁</button><button class="btn" onclick="go(7)">下一頁 →</button></div>
+</div></section>
+
+<section id="p7" class="page"><div class="card">
+<h2 class="section-title">7. 參考範文</h2><p class="muted">先完成自己的文章，再閱讀參考範文。三種查找方式都可以自由選擇，一次閱讀一篇。</p>
+<div id="n2ModelSwitch" class="model-switch"></div>
+<div id="n2ModelBody" class="model-panels"></div>
+<div class="nav"><button class="btn secondary" onclick="go(6)">← 上一頁</button><button class="btn secondary mid" onclick="go('home')">回首頁</button><button class="btn" onclick="go('done')">完成 →</button></div>
+</div></section>
+
+<section id="hw" class="page"><div class="card">
+<h2 class="section-title">回家作業：Learning by Doing</h2><p>題目提供三種「從做中學」的活動：<strong>A Stray Animal Shelter、B Mock Trial、C Robot Assembly</strong>。請寫至少 120 個英文單字，文章分兩段：第一段描述其中一張圖片中的人物與活動；第二段說明你最想參加哪一項活動及理由。</p>
+<p class="lead">需要協助時，可以自由點開一張或多張活動卡片查看思路與對應語塊；也可以不使用提示，直接完成文章。</p>
+<div class="visuals" id="hwActivityCards"></div>
+<p class="paper-note">✍️ 紙筆完成</p>
+<div class="nav"><button class="btn secondary" onclick="go('home')">← 上一頁</button><button class="btn secondary mid" onclick="go('home')">回首頁</button></div>
+</div></section>
+
+<div id="hwModelModal" class="modal-backdrop" onclick="closeHWModel(event)"><div class="model-modal" role="dialog" aria-modal="true" aria-labelledby="hwModalTitle"><div class="model-modal-head"><h2 id="hwModalTitle"></h2><button class="modal-close-x" onclick="closeHWModel()" aria-label="關閉">×</button></div><div id="hwModalContent"></div></div></div>
+<section id="done" class="page"><div class="card done"><strong>練習完成</strong><p>第一個想法只是起點。<br>學會把想法進一步說清楚，才能慢慢發展成完整的內容。</p><div class="done-actions"><button class="btn secondary" onclick="go(7)">← 回上一頁</button><button class="btn secondary" onclick="go(2)">← 回題目頁</button><button class="btn" onclick="go('home')">回首頁</button></div></div></section>
+</div>
+<script>
+const data={
+ book:{name:'Books / Library',reasons:{
+  'provide complete and well-organized information':{detail:'Books often provide complete and well-organized information, making it easier for me to understand how different ideas are connected.',support:['see how different ideas are related','build a clearer understanding of the topic']},
+  'allow me to explore a topic in greater depth':{detail:'Books often provide detailed explanations and examples, allowing me to explore a topic in greater depth and develop a deeper understanding of it.',support:['learn more about the reasons behind an issue','gain a fuller picture of the topic']}
+ },draws:{
+  'may not provide the latest information':{detail:'Some books may not provide the latest information because they were published several years ago.',solution:'I can combine books with reliable online resources to get more recent information.',support:['check a reliable website for more recent updates','use both print and online sources when necessary']},
+  'can be time-consuming':{detail:'Looking through several books to find specific information can be time-consuming.',solution:'I can use the table of contents or index to locate relevant information more efficiently.',support:['use the table of contents to find the right section','use the index to locate specific information more efficiently']}
+ }},
+ search:{name:'Search Engines',reasons:{
+  'provide quick access to information':{detail:'Search engines give me quick access to information, allowing me to find what I need in a short time.',support:['without spending a long time looking through books','find what I need in a short time']},
+  'provide access to a wide range of information':{detail:'Search engines provide access to a wide range of information, allowing me to compare information from different sources.',support:['compare information from different sources','look at the same topic from different perspectives']},
+  'make it easy to find up-to-date information':{detail:'Search engines make it easy to find up-to-date information, especially when I am looking for recent events or developments.',support:['keep up with recent events and developments','get the latest information about ...']}
+ },draws:{
+  'may provide too many search results':{detail:'Search engines may provide too many results, making it difficult to find the most useful information.',solution:'I can use specific keywords to narrow down the search results.',support:['add more specific keywords to the search','focus on the results that are most relevant to my topic']},
+  'not all online information is reliable':{detail:'Not all online information is reliable, so I need to be careful when choosing which sources to use.',solution:'I can verify the reliability of the information and compare information from different sources.',support:['check whether the information comes from a reliable source','compare the same information across different websites']}
+ }},
+ ai:{name:'AI Tools',reasons:{
+  'help me find and organize information efficiently':{detail:'AI tools can help me find relevant information and summarize the key points, making it easier to focus on important information.',support:['identify the main ideas more easily','organize complicated information into a clearer form']},
+  'help me understand difficult ideas':{detail:'AI can explain difficult ideas in simpler language, making complicated information easier to understand.',support:['ask for a simpler explanation','request an example to clarify a difficult idea']},
+  'allow me to ask follow-up questions':{detail:'When something is unclear, I can ask follow-up questions to get further explanations.',support:['ask for more details when something is unclear','continue the conversation until I understand the topic better']}
+ },draws:{
+  'may provide inaccurate or outdated information':{detail:'AI may sometimes provide inaccurate or outdated information, so important information should be checked carefully.',solution:'I can double-check important information with reliable sources.',support:['compare important facts with reliable websites','check the date of the information before using it']},
+  'may not clearly show its sources':{detail:'AI may not always clearly show the source of its information, making it difficult to judge whether the information is reliable.',solution:'I can check the original source before using important information.',support:['look for the original article or website','check who published the information']},
+  'may make users rely too heavily on AI':{detail:'If students rely too heavily on AI, they may become less willing to think through problems on their own.',solution:'Students should use AI as a helpful tool instead of depending on it for every answer.',support:['think through the problem on my own first','use AI to support my thinking rather than replace it']}
+ }}
+};
+let state={method:null,reasons:[],draws:[],useReasons:[],useDraws:[]};
+const methods=[['book','Books / Library','complete and well-organized information'],['search','Search Engines','quick access to a wide range of information'],['ai','AI Tools','quick summaries and explanations']];
+function el(id){return document.getElementById(id)}
+function go(id){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));el(id==='home'?'home':id==='hw'?'hw':id==='done'?'done':'p'+id).classList.add('active');if(id===2)renderMethods();if(id===3)renderReasons();if(id===4)renderWrite1();if(id===5)renderDraws();if(id===6)renderWrite2();if(id===7)renderN2Models();if(id==='hw')renderHW();window.scrollTo({top:0,behavior:'smooth'})}
+function makeChoice(text,selected,onClick){const b=document.createElement('button');b.className='choice'+(selected?' selected':'');b.textContent=text;b.onclick=onClick;return b}
+function renderMethods(){const box=el('methodChoices');box.innerHTML='';methods.forEach(([k,t,d])=>{const b=makeChoice('',state.method===k,()=>{if(state.method===k){state={method:null,reasons:[],draws:[],useReasons:[],useDraws:[]}}else{state={method:k,reasons:[],draws:[],useReasons:[],useDraws:[]}}renderMethods()});b.innerHTML='<strong>'+t+'</strong><span class="muted">'+d+'</span>';box.appendChild(b)});el('p2next').disabled=false}
+function ideaCard(title,info,open,onToggle,type){const wrap=document.createElement('div');wrap.className='idea-card'+(open?' open':'');wrap.style.cursor='pointer';wrap.onclick=onToggle;const head=document.createElement('button');head.className='idea-head';head.textContent=title;head.onclick=(e)=>{e.preventDefault();};wrap.appendChild(head);if(open){const detail=document.createElement('div');detail.className='idea-detail';if(type==='reason'){detail.innerHTML='<span class="label">進一步說明</span>'+info.detail}else{detail.innerHTML='<span class="label">進一步說明</span>'+info.detail+'<div class="material-list"><div class="material-item"><span class="label">解決方法</span><span class="main">'+info.solution+'</span></div></div>'}wrap.appendChild(detail)}return wrap}
+function renderReasons(){const box=el('reasonChoices');box.innerHTML='';if(!state.method){el('reasonQ').textContent='你可以直接使用自己的想法，也可以回上一頁選擇一種查找方式查看提示。';box.innerHTML='<div class="optional-note">沒有選擇查找方式也可以繼續。需要支援時，再回上一頁選擇即可。</div>';el('p3next').disabled=false;return}const d=data[state.method], entries=Object.entries(d.reasons), multi=entries.length===2;el('reasonQ').textContent='使用「'+d.name+'」時，可以從哪些理由發展內容？';entries.forEach(([r,info])=>{const open=state.reasons.includes(r);box.appendChild(ideaCard(r,info,open,()=>{if(multi){state.reasons=open?state.reasons.filter(x=>x!==r):[...state.reasons,r]}else{state.reasons=open?[]:[r]}renderReasons()},'reason'))});el('p3next').disabled=false}
+function chunksHTML(arr){return arr.map(([e,c])=>'<div class="chunk"><div class="en">'+e+'</div><div>'+c+'</div></div>').join('')}
+function renderWrite1(){
+ const box=el('sum1');
+ if(!state.method){box.innerHTML='<div class="optional-note">你沒有選擇查找方式，也可以直接使用自己的想法完成第一段。</div>';return}
+ const d=data[state.method], keys=Object.keys(d.reasons);
+ state.useReasons=state.useReasons.filter(x=>keys.includes(x));
+ const buttons=keys.map(r=>'<button class="'+(state.useReasons.includes(r)?'selected':'')+'" onclick="toggleUseReason('+JSON.stringify(r).replace(/"/g,'&quot;')+')">'+r+'</button>').join('');
+ const selected=keys.filter(r=>state.useReasons.includes(r));
+ const groups=selected.map(r=>{const ps=d.reasons[r].support||[];const idx=keys.indexOf(r);const cls=(keys.length===3&&idx===2)?' support-group center-last':' support-group';return '<div class="'+cls.trim()+'">'+ps.map(p=>'<div class="material-item"><span class="main">'+p+'</span></div>').join('')+'</div>'}).join('');
+ const chunks=selected.length?'<div class="selected-chunks"><div class="selected-chunks-title">寫作支援</div><div class="support-groups">'+groups+'</div></div>':'<div class="optional-note">尚未選擇理由。你也可以直接使用自己的想法完成第一段。</div>';
+ box.innerHTML='<b>查找方式：</b> <span class="method-name">'+d.name+'</span><div class="material-select">'+buttons+'</div>'+chunks;
+}
+function toggleUseReason(r){state.useReasons=state.useReasons.includes(r)?state.useReasons.filter(x=>x!==r):[...state.useReasons,r];renderWrite1()}
+function renderDraws(){const box=el('drawChoices');box.innerHTML='';if(!state.method){box.innerHTML='<div class="optional-note">你可以直接使用自己的想法說明缺點與解決方法；需要支援時，再回到「選擇查找方式」查看相關提示。</div>';el('p5next').disabled=false;return}const d=data[state.method], entries=Object.entries(d.draws), multi=entries.length===2;entries.forEach(([r,info])=>{const open=state.draws.includes(r);box.appendChild(ideaCard(r,info,open,()=>{if(multi){state.draws=open?state.draws.filter(x=>x!==r):[...state.draws,r]}else{state.draws=open?[]:[r]}renderDraws()},'draw'))});el('p5next').disabled=false}
+function renderWrite2(){
+ const box=el('sum2');
+ if(!state.method){box.innerHTML='<div class="optional-note">你沒有選擇查找方式，也可以直接使用自己的想法完成第二段。</div>';return}
+ const d=data[state.method], keys=Object.keys(d.draws);
+ state.useDraws=state.useDraws.filter(x=>keys.includes(x));
+ const buttons=keys.map(r=>'<button class="'+(state.useDraws.includes(r)?'selected':'')+'" onclick="toggleUseDraw('+JSON.stringify(r).replace(/"/g,'&quot;')+')">'+r+'</button>').join('');
+ const selected=keys.filter(r=>state.useDraws.includes(r));
+ const groups=selected.map(r=>{const ps=d.draws[r].support||[];const idx=keys.indexOf(r);const cls=(keys.length===3&&idx===2)?' support-group center-last':' support-group';return '<div class="'+cls.trim()+'">'+ps.map(p=>'<div class="material-item"><span class="main">'+p+'</span></div>').join('')+'</div>'}).join('');
+ const chunks=selected.length?'<div class="selected-chunks"><div class="selected-chunks-title">寫作支援</div><div class="support-groups">'+groups+'</div></div>':'<div class="optional-note">尚未選擇缺點。你也可以直接使用自己的想法完成第二段。</div>';
+ box.innerHTML='<b>查找方式：</b> <span class="method-name">'+d.name+'</span><div class="material-select">'+buttons+'</div>'+chunks;
+}
+function toggleUseDraw(r){state.useDraws=state.useDraws.includes(r)?state.useDraws.filter(x=>x!==r):[...state.useDraws,r];renderWrite2()}
+function toggleSupport(id){el(id).classList.toggle('hidden')}
+const n2Models={
+ book:{name:'Books / Library',essay:`Among the three ways of searching for information, I prefer using books and libraries because they provide complete and well-organized information. When I want to learn about a topic, books often explain ideas in a clear order and show how different points are connected. They also provide detailed explanations and examples, allowing me to explore a topic in greater depth and develop a deeper understanding of it.
+
+However, using books to search for information also has some disadvantages. Some books may not provide the latest information because they were published several years ago. In addition, looking through several books for a specific piece of information can be time-consuming. To solve these problems, I can combine books with reliable online resources and use the table of contents or index to locate relevant information more efficiently. In this way, I can enjoy the depth of books while still finding the information I need efficiently.`,chunks:[['complete and well-organized information','完整且有系統的資訊'],['explore a topic in greater depth','更深入探索一個主題'],['develop a deeper understanding of ...','對……有更深入的理解'],['time-consuming','耗時的'],['combine books with reliable online resources','結合書籍與可靠的線上資源']]},
+ search:{name:'Search Engines',essay:`Among the three ways of searching for information, I prefer using search engines because they give me quick access to a wide range of information. By entering a few keywords, I can find useful information in a short time and compare information from different sources. Search engines also make it easy to find up-to-date information, which is especially helpful when I want to learn about recent events or developments.
+
+Still, search engines have some drawbacks. They may provide too many search results, and not all online information is reliable. As a result, it can be difficult to decide which sources are useful and trustworthy. To deal with these problems, I can use specific keywords to narrow down the search results. I can also verify the reliability of important information and compare information from different sources before using it. These steps help me search more efficiently and avoid relying on unreliable information.`,chunks:[['quick access to a wide range of information','快速取得廣泛的資訊'],['compare information from different sources','比較不同來源的資訊'],['up-to-date information','最新資訊'],['narrow down the search results','縮小搜尋結果範圍'],['verify the reliability of ...','確認……的可靠性']]},
+ ai:{name:'AI Tools',essay:`Among the three ways of searching for information, I prefer using AI tools because they help me find and understand information more efficiently. When I am unfamiliar with a topic, AI can quickly provide relevant information and summarize the key points for me. It can also explain difficult ideas in simpler language, which makes complicated information easier to understand. In addition, I can ask follow-up questions when I need further explanation. For these reasons, AI has become a useful tool when I need to learn about an unfamiliar topic.
+
+Despite these advantages, using AI to search for information also has some drawbacks. The information it provides may not always be accurate or up to date, and sometimes the source of the information is unclear. Therefore, it is important not to rely too heavily on AI, especially when the information is important. Instead, I double-check key information with reliable sources and compare information from different sources when necessary. By doing so, I can enjoy the convenience of AI while reducing the risk of using incorrect information.`,chunks:[['summarize the key points','整理重點'],['explain difficult ideas in simpler language','用較簡單的方式解釋困難概念'],['ask follow-up questions','進一步追問'],['double-check ... with reliable sources','利用可靠來源再次確認……'],['rely too heavily on ...','過度依賴……']]}
+};
+let n2ModelsOpen=[];
+function phrasePanelHTML(chunks){return '<div class="phrase-panel"><strong>值得學的語塊</strong><div class="phrase-grid">'+chunksHTML(chunks)+'</div></div>'}
+function closeN2Model(k){n2ModelsOpen=n2ModelsOpen.filter(x=>x!==k);renderN2Models()}
+function renderN2Models(){
+ const sw=el('n2ModelSwitch'); sw.innerHTML='';
+ methods.forEach(([k,t])=>{const open=n2ModelsOpen.includes(k);const b=document.createElement('button');b.textContent=t;b.className=open?'selected':'';b.onclick=()=>{n2ModelsOpen=open?[]:[k];renderN2Models()};sw.appendChild(b)});
+ const body=el('n2ModelBody');body.innerHTML='';
+ n2ModelsOpen.forEach(k=>{const m=n2Models[k];const panel=document.createElement('div');panel.className='model-panel open';panel.innerHTML='<h3>'+m.name+'</h3><div class="essay">'+m.essay+'</div>'+phrasePanelHTML(m.chunks)+'<div class="model-panel-close"><button class="toggle" onclick="closeN2Model(\''+k+'\')">關閉</button></div>';body.appendChild(panel)});
+ if(n2ModelsOpen.length===0) body.innerHTML='<div class="optional-note">三篇參考範文都可以自由選擇查看；一次顯示一篇，也可以不查看，直接完成練習。</div>';
+}
+const hw={
+ shelter:{name:'A Stray Animal Shelter',icon:'🐕',thoughts:['可以描述餵食、清潔環境、帶狗散步等工作。','可以思考照顧動物需要哪些態度與責任。','可以進一步寫自己能從服務過程中學到什麼。'],chunks:[['show respect for life','尊重生命'],['develop patience and a sense of responsibility','培養耐心與責任感']],essay:`As shown in the picture, several students are volunteering at a stray animal shelter. They are helping take care of the animals by feeding them, cleaning their living areas, and taking the dogs for walks. These tasks may seem simple, but they require time, patience, and responsibility. Through this experience, students can learn how to care for animals and show respect for life.\n\nAmong the three activities, volunteering at a stray animal shelter appeals to me the most because I have always loved animals. However, I know that caring for animals means more than simply playing with them. I would need to spend time feeding them, keeping their living areas clean, and making sure they are properly cared for. By doing these tasks regularly, I could develop patience and a sense of responsibility. Most importantly, I would have the chance to help animals in need while learning to care for another living thing.`},
+ trial:{name:'B Mock Trial',icon:'⚖️',thoughts:['可以描述法官、律師、陪審員或被告等不同角色。','可以思考角色扮演如何幫助自己理解法律制度。','可以進一步寫如何從不同觀點思考同一個議題。'],chunks:[['develop a deeper understanding of the legal system','對法律制度有更深入的理解'],['look at an issue from different perspectives','從不同角度看待議題']],essay:`The picture shows several students taking part in a mock trial. They are playing different roles, such as judges, lawyers, jury members, and defendants. By role-playing what happens in a courtroom, students can experience the legal process and learn more about how the legal system works.\n\nOf the three activities, I would be most interested in taking part in a mock trial. Since I have little experience with the legal system, this activity would give me a chance to learn about it through actual participation. I could listen to different viewpoints and think carefully about the information presented during the trial. This would help me develop a deeper understanding of the legal system and learn to look at an issue from different perspectives. I believe this experience would be both educational and memorable.`},
+ robot:{name:'C Robot Assembly',icon:'🤖',thoughts:['可以描述組裝、討論、測試與修正的過程。','可以思考遇到問題時如何找出原因並嘗試不同解法。','可以進一步寫實作經驗能培養哪些能力。'],chunks:[['gain hands-on experience','獲得實作經驗'],['put ideas into practice','把想法付諸實行'],['learn through trial and error','透過反覆嘗試與修正來學習'],['develop problem-solving skills','培養解決問題的能力']],essay:`As shown in the picture, several students are taking part in a robot assembly activity. They are working together to build a robot and discussing how to make it work properly. During the activity, they need to share ideas, test different solutions, and solve problems together. Through this hands-on experience, they can learn how to put their ideas into practice.\n\nI would most like to take part in robot assembly because I enjoy learning how things work. Building a robot would give me the chance to test my ideas and learn through trial and error. When something does not work as expected, I would need to identify the problem and try different solutions. In this way, I could develop my problem-solving skills instead of simply giving up when I face difficulties. I could also learn how to work together with my teammates. For me, robot assembly would be an exciting way to gain hands-on experience while developing useful skills.`}
+};
+let hwOpen=[];
+function openHWGuidance(k){
+ const d=hw[k];
+ el('hwModalTitle').textContent=d.icon+'  '+d.name;
+ const chunks=d.chunks.map(x=>'<div class="chunk"><b>'+x[0]+'</b><span>'+x[1]+'</span></div>').join('');
+ el('hwModalContent').innerHTML='<div class="hw-guidance-grid"><div class="hw-guidance-panel"><h3>思路提示</h3><ul>'+d.thoughts.map(x=>'<li>'+x+'</li>').join('')+'</ul></div><div class="hw-guidance-panel"><h3>對應語塊</h3>'+chunks+'</div></div><div class="hw-guidance-actions"><button class="toggle model-toggle" onclick="openHWModel(\''+k+'\')">完成後查看參考範文</button><button class="toggle close-card" onclick="closeHWModel()">關閉</button></div>';
+ el('hwModelModal').classList.add('open');
+ document.body.style.overflow='hidden';
+}
+function openHWModel(k,e){
+ if(e)e.stopPropagation();
+ const d=hw[k];
+ /* Replace the guidance view instead of stacking another modal. */
+ el('hwModalTitle').textContent=d.icon+'  '+d.name+'－參考範文';
+ el('hwModalContent').innerHTML='<div class="model-modal-grid"><div class="essay">'+d.essay+'</div>'+phrasePanelHTML(d.chunks)+'</div><div class="hw-guidance-actions"><button class="toggle close-card" onclick="closeHWModel()">關閉</button></div>';
+ el('hwModelModal').classList.add('open');
+ document.body.style.overflow='hidden';
+}
+function closeHWModel(e){if(e && e.target!==el('hwModelModal'))return;el('hwModelModal').classList.remove('open');document.body.style.overflow=''}
+function renderHW(){
+ const box=el('hwActivityCards');box.innerHTML='';
+ Object.keys(hw).forEach(k=>{
+  const d=hw[k];
+  const card=document.createElement('div');card.className='visual hw-activity';
+  const head=document.createElement('div');head.className='activity-head';head.innerHTML='<div class="icon">'+d.icon+'</div><b>'+d.name+'</b>';head.onclick=()=>openHWGuidance(k);card.appendChild(head);
+  box.appendChild(card);
+ });
+}
+renderMethods();
+</script>
+</body></html>
