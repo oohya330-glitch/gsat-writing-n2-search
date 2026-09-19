@@ -133,6 +133,17 @@ button{font:inherit}.wrap{width:min(1120px,calc(100% - 32px));margin:0 auto;padd
 .hw-guidance-actions .close-card{width:104px;min-height:46px;padding:8px 16px;background:#f3f7f9;color:var(--blue);border:1.5px solid #9fb9c9}
 @media(max-width:760px){.hw-guidance-grid{grid-template-columns:1fr}.hw-activity .activity-head,.hw-activity.open .activity-head,.hw-activity:not(.open) .activity-head{height:auto;min-height:auto;padding:18px 0}}
 
+
+/* confirmation: model-text size control */
+.model-font-controls{display:flex;align-items:center;justify-content:flex-end;gap:8px;flex-wrap:wrap;margin:0 0 14px}
+.model-font-controls .font-label{font-weight:800;color:#405866;margin-right:2px}
+.model-font-controls button{border:1.5px solid #b7cbd8;background:#fff;color:#315f7a;border-radius:10px;padding:7px 11px;font-weight:800;cursor:pointer;min-width:58px}
+.model-font-controls button.active{border-color:var(--blue);background:var(--blue2);color:#173f58}
+.model-font-controls button:disabled{opacity:.48;cursor:default}
+.model-reading{font-size:var(--model-font-size,100%);line-height:var(--model-line-height,1.72)}
+.model-reading p{margin:.65em 0}
+@media(max-width:760px){.model-font-controls{justify-content:flex-start}.model-font-controls button{min-width:54px;padding:7px 9px}}
+
 /* v18: clearer model tabs + one bottom close control */
 .model-panel-close{display:flex;justify-content:center;margin-top:20px}
 .model-panel-close .toggle{min-width:112px;width:auto;padding:9px 22px;border-color:#b7cbd8;background:#f4f8fa;color:#315f7a}
@@ -143,6 +154,92 @@ button{font:inherit}.wrap{width:min(1120px,calc(100% - 32px));margin:0 auto;padd
 .done-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
 .done-actions .btn{width:160px;min-width:160px}
 @media(max-width:620px){.done-actions{flex-direction:column;align-items:center}.done-actions .btn{width:min(100%,260px)}}
+
+/* confirmation: tablet home cards equal height only */
+@media (min-width:761px) and (max-width:1100px){
+  #home .grid.two{align-items:stretch}
+  #home .home-choice{
+    height:100%;
+    display:flex;
+    flex-direction:column;
+  }
+  #home .home-choice .btn{margin-top:auto}
+}
+
+
+/* fix: ensure A / A+ actually controls homework model essay text */
+.essay.model-reading,
+.model-modal .essay.model-reading{
+  font-size:var(--model-font-size,100%);
+  line-height:var(--model-line-height,1.72);
+}
+
+
+/* confirmation: numbered seven-step classroom quick navigation */
+.lesson-step-nav{
+  display:grid;
+  grid-template-columns:repeat(7,minmax(0,1fr));
+  gap:8px;
+  margin:0 0 16px;
+}
+.lesson-step-nav button{
+  appearance:none;
+  border:1px solid #d8e4ed;
+  background:#edf4f8;
+  color:#173a52;
+  border-radius:12px;
+  min-height:46px;
+  padding:7px 8px;
+  font:inherit;
+  font-size:13px;
+  font-weight:800;
+  line-height:1.15;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  white-space:nowrap;
+  transition:border-color .18s ease, background .18s ease, box-shadow .18s ease;
+}
+.lesson-step-nav button:hover{
+  border-color:#9db8c9;
+  background:#e5eff5;
+}
+.lesson-step-nav .step-num{
+  flex:0 0 auto;
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:#8ca9bd;
+  color:#fff;
+  font-size:14px;
+  font-weight:800;
+  line-height:1;
+}
+.lesson-step-nav button.active{
+  background:#236d92;
+  border-color:#236d92;
+  color:#fff;
+  box-shadow:0 3px 10px rgba(35,109,146,.14);
+}
+.lesson-step-nav button.active .step-num{
+  background:#fff;
+  color:#236d92;
+}
+@media(max-width:1100px){
+  .lesson-step-nav{grid-template-columns:repeat(4,minmax(0,1fr));}
+  .lesson-step-nav button{min-height:46px;font-size:13px;}
+}
+@media(max-width:620px){
+  .lesson-step-nav{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-bottom:14px;}
+  .lesson-step-nav button{min-height:46px;padding:7px 6px;font-size:13px;gap:6px;}
+  .lesson-step-nav .step-num{width:27px;height:27px;font-size:13px;}
+}
+
 </style>
 </head>
 <body>
@@ -154,10 +251,11 @@ button{font:inherit}.wrap{width:min(1120px,calc(100% - 32px));margin:0 auto;padd
     <div class="card home-choice"><strong>課堂示範</strong><div>查找資料</div><p class="muted">跟著提示發展想法，完成兩段寫作。</p><button class="btn" onclick="go(1)">開始練習</button></div>
     <div class="card home-choice"><strong>回家作業</strong><div>Learning by Doing</div><p class="muted">運用練習過的方法，自己完成另一篇作文。</p><button class="btn" onclick="go('hw')">開始作業</button></div>
   </div>
-  <div style="text-align:center;margin-top:20px"><a class="btn secondary" href="#" onclick="return false">← 互動寫作</a></div>
+  <div style="text-align:center;margin-top:20px"><a class="btn secondary" href="https://oohya330-glitch.github.io/lulu-english-challenge-map/writing.html">← 互動寫作</a></div>
 </section>
 
 <section id="p1" class="page"><div class="card">
+<div class="lesson-step-nav" data-current="1" aria-label="課堂示範步驟導覽"></div>
 <h2 class="section-title">1. 看懂題目</h2>
 <div class="task">隨著科技的蓬勃發展，人們查找資料的方式在過去幾十年來明顯改變，有別於過去到圖書館找相關書籍，越來越多年輕人選擇更有效率的方式來搜尋需要的資料。請以此為主題，並參照下列圖片，寫一篇英文作文，文章分兩段。第一段請選擇你偏愛的資料搜尋方式並說明原因。第二段請說明該方式的缺點及可能的解決方法。</div>
 <div class="visuals"><div class="visual"><div class="icon">📚</div><b>書籍／圖書館</b></div><div class="visual"><div class="icon">🔎</div><b>搜尋引擎</b></div><div class="visual"><div class="icon">💬</div><b>AI 工具</b></div></div>
@@ -166,32 +264,38 @@ button{font:inherit}.wrap{width:min(1120px,calc(100% - 32px));margin:0 auto;padd
 </div></section>
 
 <section id="p2" class="page"><div class="card">
+<div class="lesson-step-nav" data-current="2" aria-label="課堂示範步驟導覽"></div>
 <h2 class="section-title">2. 選擇查找方式</h2><p class="lead">你比較喜歡使用哪一種方式查找資料？</p>
 <div class="grid" id="methodChoices"></div><div class="optional-note">需要提示時，可以先選一種方式查看相關材料；也可以不選，直接使用自己的想法。</div>
 <div class="nav"><button class="btn secondary" onclick="go(1)">← 上一頁</button><button class="btn secondary mid" onclick="go('home')">回首頁</button><button id="p2next" class="btn" onclick="go(3)">下一頁 →</button></div>
 </div></section>
 
 <section id="p3" class="page"><div class="card">
+<div class="lesson-step-nav" data-current="3" aria-label="課堂示範步驟導覽"></div>
 <h2 class="section-title">3. 發展第一段</h2><p class="lead" id="reasonQ"></p><p class="muted">可以逐一點開理由，看看每個想法可以如何進一步說明。</p><div class="grid two" id="reasonChoices"></div>
 <div class="nav"><button class="btn secondary" onclick="go(2)">← 上一頁</button><button class="btn secondary mid" onclick="go('home')">回首頁</button><button id="p3next" class="btn" onclick="go(4)">下一頁 →</button></div>
 </div></section>
 
 <section id="p4" class="page"><div class="card">
+<div class="lesson-step-nav" data-current="4" aria-label="課堂示範步驟導覽"></div>
 <h2 class="section-title">4. 完成第一段</h2><p class="lead">選擇你想使用的理由。可以選一個、兩個、全部，也可以完全不選。</p><div id="sum1" class="summary"></div><p class="paper-note">✍️ 紙筆完成</p>
 <div class="nav"><button class="btn secondary" onclick="go(3)">← 上一頁</button><button class="btn secondary mid" onclick="go('home')">回首頁</button><button class="btn" onclick="go(5)">下一頁 →</button></div>
 </div></section>
 
 <section id="p5" class="page"><div class="card">
+<div class="lesson-step-nav" data-current="5" aria-label="課堂示範步驟導覽"></div>
 <h2 class="section-title">5. 發展第二段</h2><p class="lead">這個方式可能有什麼缺點？</p><p class="muted">可以點開一個或多個缺點，查看說明與可能的解決方法。</p><div class="grid two" id="drawChoices"></div>
 <div class="nav"><button class="btn secondary" onclick="go(4)">← 上一頁</button><button class="btn secondary mid" onclick="go('home')">回首頁</button><button id="p5next" class="btn" onclick="go(6)">下一頁 →</button></div>
 </div></section>
 
 <section id="p6" class="page"><div class="card">
+<div class="lesson-step-nav" data-current="6" aria-label="課堂示範步驟導覽"></div>
 <h2 class="section-title">6. 完成第二段</h2><p class="lead">選擇你想使用的缺點。可以選一個、兩個、全部，也可以完全不選。</p><div id="sum2" class="summary"></div><p class="paper-note">✍️ 紙筆完成</p>
 <div class="nav"><button class="btn secondary" onclick="go(5)">← 上一頁</button><button class="btn secondary mid" onclick="go('home')">回首頁</button><button class="btn" onclick="go(7)">下一頁 →</button></div>
 </div></section>
 
 <section id="p7" class="page"><div class="card">
+<div class="lesson-step-nav" data-current="7" aria-label="課堂示範步驟導覽"></div>
 <h2 class="section-title">7. 參考範文</h2><p class="muted">先完成自己的文章，再閱讀參考範文。三種查找方式都可以自由選擇，一次閱讀一篇。</p>
 <div id="n2ModelSwitch" class="model-switch"></div>
 <div id="n2ModelBody" class="model-panels"></div>
@@ -239,6 +343,20 @@ const data={
 let state={method:null,reasons:[],draws:[],useReasons:[],useDraws:[]};
 const methods=[['book','Books / Library','complete and well-organized information'],['search','Search Engines','quick access to a wide range of information'],['ai','AI Tools','quick summaries and explanations']];
 function el(id){return document.getElementById(id)}
+const lessonSteps=[
+  [1,'題目'],[2,'選擇'],[3,'第一段想法'],[4,'第一段完成'],
+  [5,'第二段想法'],[6,'第二段完成'],[7,'範文']
+];
+function renderLessonStepNav(){
+  document.querySelectorAll('.lesson-step-nav').forEach(nav=>{
+    const current=Number(nav.dataset.current);
+    nav.innerHTML=lessonSteps.map(([n,label])=>
+      '<button type="button" class="'+(n===current?'active':'')+'" onclick="go('+n+')"'+(n===current?' aria-current="page"':'')+'><span class="step-num">'+n+'</span><span class="step-label">'+label+'</span></button>'
+    ).join('');
+  });
+}
+renderLessonStepNav();
+
 function go(id){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));el(id==='home'?'home':id==='hw'?'hw':id==='done'?'done':'p'+id).classList.add('active');if(id===2)renderMethods();if(id===3)renderReasons();if(id===4)renderWrite1();if(id===5)renderDraws();if(id===6)renderWrite2();if(id===7)renderN2Models();if(id==='hw')renderHW();window.scrollTo({top:0,behavior:'smooth'})}
 function makeChoice(text,selected,onClick){const b=document.createElement('button');b.className='choice'+(selected?' selected':'');b.textContent=text;b.onclick=onClick;return b}
 function renderMethods(){const box=el('methodChoices');box.innerHTML='';methods.forEach(([k,t,d])=>{const b=makeChoice('',state.method===k,()=>{if(state.method===k){state={method:null,reasons:[],draws:[],useReasons:[],useDraws:[]}}else{state={method:k,reasons:[],draws:[],useReasons:[],useDraws:[]}}renderMethods()});b.innerHTML='<strong>'+t+'</strong><span class="muted">'+d+'</span>';box.appendChild(b)});el('p2next').disabled=false}
@@ -282,6 +400,65 @@ Still, search engines have some drawbacks. They may provide too many search resu
 
 Despite these advantages, using AI to search for information also has some drawbacks. The information it provides may not always be accurate or up to date, and sometimes the source of the information is unclear. Therefore, it is important not to rely too heavily on AI, especially when the information is important. Instead, I double-check key information with reliable sources and compare information from different sources when necessary. By doing so, I can enjoy the convenience of AI while reducing the risk of using incorrect information.`,chunks:[['summarize the key points','整理重點'],['explain difficult ideas in simpler language','用較簡單的方式解釋困難概念'],['ask follow-up questions','進一步追問'],['double-check ... with reliable sources','利用可靠來源再次確認……'],['rely too heavily on ...','過度依賴……']]}
 };
+let modelFontScale=100;
+let homeworkModelFontScale=100;
+function modelFontVars(){
+ const sizes={100:['100%','1.72'],110:['110%','1.68'],120:['120%','1.64'],130:['130%','1.60']};
+ const v=sizes[modelFontScale]||sizes[100];
+ return '--model-font-size:'+v[0]+';--model-line-height:'+v[1];
+}
+function modelFontControls(){
+ return '<div class="model-font-controls"><span class="font-label">文字大小</span>'+
+ '<button type="button" class="'+(modelFontScale===100?'active':'')+'" onclick="setModelFont(100)">A</button>'+
+ '<button type="button" class="'+(modelFontScale>100?'active':'')+'" onclick="increaseModelFont()" '+(modelFontScale>=130?'disabled':'')+'>A+</button>'+
+ '</div>';
+}
+function homeworkModelFontControls(){
+ return '<div class="model-font-controls homework-font-controls"><span class="font-label">文字大小</span>'+
+ '<button type="button" class="'+(homeworkModelFontScale===100?'active':'')+'" onclick="setHomeworkModelFont(100)">A</button>'+
+ '<button type="button" class="'+(homeworkModelFontScale>100?'active':'')+'" onclick="increaseHomeworkModelFont()" '+(homeworkModelFontScale>=130?'disabled':'')+'>A+</button>'+
+ '</div>';
+}
+function homeworkModelFontVars(){
+ const sizes={100:['100%','1.72'],110:['110%','1.68'],120:['120%','1.64'],130:['130%','1.60']};
+ const v=sizes[homeworkModelFontScale]||sizes[100];
+ return '--model-font-size:'+v[0]+';--model-line-height:'+v[1];
+}
+function refreshHomeworkModelFontView(){
+ const modal=el('hwModelModal');
+ const hwKey=(modal && modal.classList.contains('open')) ? modal.dataset.modelKey : '';
+ if(hwKey) renderHWModel(hwKey);
+}
+function setHomeworkModelFont(n){
+ homeworkModelFontScale=n;
+ refreshHomeworkModelFontView();
+}
+function increaseHomeworkModelFont(){
+ if(homeworkModelFontScale<110) homeworkModelFontScale=110;
+ else if(homeworkModelFontScale<120) homeworkModelFontScale=120;
+ else if(homeworkModelFontScale<130) homeworkModelFontScale=130;
+ refreshHomeworkModelFontView();
+}
+function refreshModelFontViews(){
+ const modal=el('hwModelModal');
+ const hwKey=(modal && modal.classList.contains('open')) ? modal.dataset.modelKey : '';
+ if(hwKey){
+   renderHWModel(hwKey);
+ }else{
+   renderN2Models();
+ }
+}
+function setModelFont(n){
+ modelFontScale=n;
+ refreshModelFontViews();
+}
+function increaseModelFont(){
+ if(modelFontScale<110) modelFontScale=110;
+ else if(modelFontScale<120) modelFontScale=120;
+ else if(modelFontScale<130) modelFontScale=130;
+ refreshModelFontViews();
+}
+
 let n2ModelsOpen=[];
 function phrasePanelHTML(chunks){return '<div class="phrase-panel"><strong>值得學的語塊</strong><div class="phrase-grid">'+chunksHTML(chunks)+'</div></div>'}
 function closeN2Model(k){n2ModelsOpen=n2ModelsOpen.filter(x=>x!==k);renderN2Models()}
@@ -289,7 +466,7 @@ function renderN2Models(){
  const sw=el('n2ModelSwitch'); sw.innerHTML='';
  methods.forEach(([k,t])=>{const open=n2ModelsOpen.includes(k);const b=document.createElement('button');b.textContent=t;b.className=open?'selected':'';b.onclick=()=>{n2ModelsOpen=open?[]:[k];renderN2Models()};sw.appendChild(b)});
  const body=el('n2ModelBody');body.innerHTML='';
- n2ModelsOpen.forEach(k=>{const m=n2Models[k];const panel=document.createElement('div');panel.className='model-panel open';panel.innerHTML='<h3>'+m.name+'</h3><div class="essay">'+m.essay+'</div>'+phrasePanelHTML(m.chunks)+'<div class="model-panel-close"><button class="toggle" onclick="closeN2Model(\''+k+'\')">關閉</button></div>';body.appendChild(panel)});
+ n2ModelsOpen.forEach(k=>{const m=n2Models[k];const panel=document.createElement('div');panel.className='model-panel open';panel.innerHTML='<h3>'+m.name+'</h3>'+modelFontControls()+'<div class="essay model-reading" style="'+modelFontVars()+'">'+m.essay+'</div>'+phrasePanelHTML(m.chunks)+'<div class="model-panel-close"><button class="toggle" onclick="closeN2Model(\''+k+'\')">關閉</button></div>';body.appendChild(panel)});
  if(n2ModelsOpen.length===0) body.innerHTML='<div class="optional-note">三篇參考範文都可以自由選擇查看；一次顯示一篇，也可以不查看，直接完成練習。</div>';
 }
 const hw={
@@ -299,6 +476,7 @@ const hw={
 };
 let hwOpen=[];
 function openHWGuidance(k){
+ el('hwModelModal').dataset.modelKey='';
  const d=hw[k];
  el('hwModalTitle').textContent=d.icon+'  '+d.name;
  const chunks=d.chunks.map(x=>'<div class="chunk"><b>'+x[0]+'</b><span>'+x[1]+'</span></div>').join('');
@@ -306,12 +484,17 @@ function openHWGuidance(k){
  el('hwModelModal').classList.add('open');
  document.body.style.overflow='hidden';
 }
+function renderHWModel(k){
+ const d=hw[k];
+ el('hwModelModal').dataset.modelKey=k;
+ el('hwModalTitle').textContent=d.icon+'  '+d.name+'－參考範文';
+ el('hwModalContent').innerHTML=homeworkModelFontControls()+'<div class="model-modal-grid"><div class="essay model-reading" style="'+homeworkModelFontVars()+'">'+d.essay+'</div>'+phrasePanelHTML(d.chunks)+'</div><div class="hw-guidance-actions"><button class="toggle close-card" onclick="closeHWModel()">關閉</button></div>';
+}
 function openHWModel(k,e){
  if(e)e.stopPropagation();
- const d=hw[k];
- /* Replace the guidance view instead of stacking another modal. */
- el('hwModalTitle').textContent=d.icon+'  '+d.name+'－參考範文';
- el('hwModalContent').innerHTML='<div class="model-modal-grid"><div class="essay">'+d.essay+'</div>'+phrasePanelHTML(d.chunks)+'</div><div class="hw-guidance-actions"><button class="toggle close-card" onclick="closeHWModel()">關閉</button></div>';
+ /* Homework model text size is independent from classroom models. */
+ homeworkModelFontScale=100;
+ renderHWModel(k);
  el('hwModelModal').classList.add('open');
  document.body.style.overflow='hidden';
 }
