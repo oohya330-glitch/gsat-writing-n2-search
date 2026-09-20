@@ -241,13 +241,40 @@ button{font:inherit}.wrap{width:min(1120px,calc(100% - 32px));margin:0 auto;padd
 }
 
 
-/* 2026-09-20 mobile-only confirmation fixes */
-.mobile-break{display:none}
-.keep-together{white-space:normal}
-@media(max-width:620px){
-  #home .homework-desc .mobile-break{display:block}
-  #home .homework-desc .keep-together{white-space:nowrap}
+/* 2026-09-20 second test confirmation fixes */
+.homework-break{display:none}
+.homework-line2{white-space:normal}
 
+/* Pages 4 and 6 match the English-card typography on pages 3 and 5 on all devices. */
+#sum1 .material-select button,
+#sum2 .material-select button{
+  font-size:clamp(22px,2vw,28px);
+  font-weight:800;
+  line-height:1.45;
+}
+
+/* Tablet: keep each numbered circle at a fixed position inside its step button. */
+@media(min-width:621px) and (max-width:1100px){
+  .lesson-step-nav button{
+    display:grid;
+    grid-template-columns:28px minmax(0,1fr);
+    align-items:center;
+    justify-content:stretch;
+    column-gap:7px;
+    text-align:left;
+  }
+  .lesson-step-nav .step-num{grid-column:1;justify-self:center}
+  .lesson-step-nav .step-label{grid-column:2;justify-self:start;text-align:left}
+}
+
+/* Phone + tablet: keep the requested homework line break and align both lines left. */
+@media(max-width:1100px){
+  #home .homework-desc{display:inline-block;text-align:left}
+  #home .homework-desc .homework-break{display:block}
+  #home .homework-desc .homework-line2{white-space:nowrap}
+}
+
+@media(max-width:620px){
   /* Keep step numbers aligned within each mobile column. */
   .lesson-step-nav button{
     display:grid;
@@ -260,13 +287,9 @@ button{font:inherit}.wrap{width:min(1120px,calc(100% - 32px));margin:0 auto;padd
   .lesson-step-nav .step-num{grid-column:1;justify-self:center}
   .lesson-step-nav .step-label{grid-column:2;justify-self:start;text-align:left}
 
-  /* Pages 4 and 6 use the same English-card size as pages 3 and 5. */
-  #sum1 .material-select button,
-  #sum2 .material-select button{
-    font-size:22px;
-    font-weight:800;
-    line-height:1.45;
-  }
+  /* Make expanded teaching explanations easier to read on phones. */
+  .idea-detail{font-size:21px}
+  .idea-detail .label{font-size:20px}
 }
 
 </style>
@@ -278,7 +301,7 @@ button{font:inherit}.wrap{width:min(1120px,calc(100% - 32px));margin:0 auto;padd
 <section id="home" class="page active">
   <div class="grid two">
     <div class="card home-choice"><strong>課堂示範</strong><div>查找資料</div><p class="muted">跟著提示發展想法，完成兩段寫作。</p><button class="btn" onclick="go(1)">開始練習</button></div>
-    <div class="card home-choice"><strong>回家作業</strong><div>Learning by Doing</div><p class="muted homework-desc">運用練習過的方法，自己完成<span class="mobile-break"></span><span class="keep-together">另一篇作文。</span></p><button class="btn" onclick="go('hw')">開始作業</button></div>
+    <div class="card home-choice"><strong>回家作業</strong><div>Learning by Doing</div><p class="muted homework-desc">運用練習過的方法，自己完成<span class="homework-break"></span><span class="homework-line2">另一篇作文。</span></p><button class="btn" onclick="go('hw')">開始作業</button></div>
   </div>
   <div style="text-align:center;margin-top:20px"><a class="btn secondary" href="https://oohya330-glitch.github.io/lulu-english-challenge-map/writing.html">← 互動寫作</a></div>
 </section>
