@@ -522,6 +522,40 @@ button{font:inherit}.wrap{width:min(1120px,calc(100% - 32px));margin:0 auto;padd
   text-align:left;
   white-space:normal;
 }
+
+/* 2026-09-20 page 2 visual-balance refinement — descriptions only.
+   Keep card geometry and headings unchanged. Wrapped description lines stay left-aligned. */
+#methodChoices .choice .method-desc{
+  display:flex;
+  justify-content:center;
+  width:100%;
+}
+#methodChoices .choice .method-desc .card-text-block{
+  display:block;
+  box-sizing:border-box;
+  width:84%;
+  max-width:84%;
+  margin:0;
+  text-align:left;
+  white-space:normal;
+}
+/* The middle description is naturally longer, so give it a little more usable width. */
+#methodChoices .choice:nth-child(2) .method-desc .card-text-block{
+  width:88%;
+  max-width:88%;
+}
+/* The AI description is shorter; a slightly narrower centered text area
+   moves its left edge right and balances it visually with the other two cards. */
+#methodChoices .choice:nth-child(3) .method-desc .card-text-block{
+  width:76%;
+  max-width:76%;
+}
+@media(max-width:760px){
+  #methodChoices .choice .method-desc .card-text-block{width:88%;max-width:88%;}
+  #methodChoices .choice:nth-child(2) .method-desc .card-text-block{width:92%;max-width:92%;}
+  #methodChoices .choice:nth-child(3) .method-desc .card-text-block{width:82%;max-width:82%;}
+}
+
 </style>
 </head>
 <body>
