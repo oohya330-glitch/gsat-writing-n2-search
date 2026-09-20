@@ -383,14 +383,16 @@ button{font:inherit}.wrap{width:min(1120px,calc(100% - 32px));margin:0 auto;padd
   #sum2 .selected-chunks .material-item .main{font-size:27px}
 }
 
-/* 2026-09-20 desktop step-nav alignment confirmation fix */
+/* 2026-09-20 desktop step-nav fixed circle position confirmation fix */
 @media(min-width:1101px){
   .lesson-step-nav button{
     display:grid;
-    grid-template-columns:28px minmax(0,auto);
+    grid-template-columns:28px minmax(0,1fr);
     align-items:center;
-    justify-content:center;
+    justify-content:stretch;
     column-gap:7px;
+    padding-left:14px;
+    padding-right:8px;
     text-align:left;
   }
   .lesson-step-nav .step-num{
