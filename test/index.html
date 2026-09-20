@@ -383,6 +383,27 @@ button{font:inherit}.wrap{width:min(1120px,calc(100% - 32px));margin:0 auto;padd
   #sum2 .selected-chunks .material-item .main{font-size:27px}
 }
 
+/* 2026-09-20 desktop step-nav alignment confirmation fix */
+@media(min-width:1101px){
+  .lesson-step-nav button{
+    display:grid;
+    grid-template-columns:28px minmax(0,auto);
+    align-items:center;
+    justify-content:center;
+    column-gap:7px;
+    text-align:left;
+  }
+  .lesson-step-nav .step-num{
+    grid-column:1;
+    justify-self:center;
+  }
+  .lesson-step-nav .step-label{
+    grid-column:2;
+    justify-self:start;
+    text-align:left;
+  }
+}
+
 </style>
 </head>
 <body>
