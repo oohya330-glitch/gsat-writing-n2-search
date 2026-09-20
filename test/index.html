@@ -315,6 +315,74 @@ button{font:inherit}.wrap{width:min(1120px,calc(100% - 32px));margin:0 auto;padd
   }
 }
 
+
+/* 2026-09-20 responsive typography and alignment confirmation */
+/* Pages 3 and 5: expanded explanation text is bold and matches solution text. */
+.idea-detail > .detail-text,
+.idea-detail .material-item .main{
+  font-size:1em;
+  font-weight:800;
+  line-height:1.65;
+  color:#173f58;
+}
+
+/* Pages 4 and 6: center the text block inside each card while keeping wrapped lines left-aligned. */
+#sum1 .material-select button,
+#sum2 .material-select button{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:left;
+}
+#sum1 .material-select button .choice-text,
+#sum2 .material-select button .choice-text{
+  display:block;
+  width:fit-content;
+  max-width:100%;
+  margin:0 auto;
+  text-align:left;
+}
+
+/* Pages 4 and 6: enlarge writing-support phrases on desktop, tablet, and phone. */
+#sum1 .selected-chunks .material-item .main,
+#sum2 .selected-chunks .material-item .main{
+  display:block;
+  font-size:clamp(21px,1.85vw,27px);
+  font-weight:800;
+  line-height:1.55;
+  color:#173f58;
+}
+#sum1 .selected-chunks-title,
+#sum2 .selected-chunks-title{
+  font-size:clamp(19px,1.55vw,23px);
+  font-weight:800;
+}
+
+@media(max-width:620px){
+  #sum1 .material-select button,
+  #sum2 .material-select button{
+    font-size:22px;
+    min-height:92px;
+  }
+  #sum1 .selected-chunks .material-item .main,
+  #sum2 .selected-chunks .material-item .main{
+    font-size:21px;
+    line-height:1.55;
+  }
+  #sum1 .selected-chunks-title,
+  #sum2 .selected-chunks-title{font-size:20px}
+}
+
+@media(min-width:621px) and (max-width:1100px){
+  #sum1 .selected-chunks .material-item .main,
+  #sum2 .selected-chunks .material-item .main{font-size:23px}
+}
+
+@media(min-width:1400px){
+  #sum1 .selected-chunks .material-item .main,
+  #sum2 .selected-chunks .material-item .main{font-size:27px}
+}
+
 </style>
 </head>
 <body>
@@ -443,7 +511,7 @@ function renderWrite1(){
  if(!state.method){box.innerHTML='<div class="optional-note">你沒有選擇查找方式，也可以直接使用自己的想法完成第一段。</div>';return}
  const d=data[state.method], keys=Object.keys(d.reasons);
  state.useReasons=state.useReasons.filter(x=>keys.includes(x));
- const buttons=keys.map(r=>'<button class="'+(state.useReasons.includes(r)?'selected':'')+'" onclick="toggleUseReason('+JSON.stringify(r).replace(/"/g,'&quot;')+')">'+r+'</button>').join('');
+ const buttons=keys.map(r=>'<button class="'+(state.useReasons.includes(r)?'selected':'')+'" onclick="toggleUseReason('+JSON.stringify(r).replace(/"/g,'&quot;')+')"><span class="choice-text">'+r+'</span></button>').join('');
  const selected=keys.filter(r=>state.useReasons.includes(r));
  const groups=selected.map(r=>{const ps=d.reasons[r].support||[];const idx=keys.indexOf(r);const cls=(keys.length===3&&idx===2)?' support-group center-last':' support-group';return '<div class="'+cls.trim()+'">'+ps.map(p=>'<div class="material-item"><span class="main">'+p+'</span></div>').join('')+'</div>'}).join('');
  const chunks=selected.length?'<div class="selected-chunks"><div class="selected-chunks-title">寫作支援</div><div class="support-groups">'+groups+'</div></div>':'<div class="optional-note">尚未選擇理由。你也可以直接使用自己的想法完成第一段。</div>';
@@ -456,7 +524,7 @@ function renderWrite2(){
  if(!state.method){box.innerHTML='<div class="optional-note">你沒有選擇查找方式，也可以直接使用自己的想法完成第二段。</div>';return}
  const d=data[state.method], keys=Object.keys(d.draws);
  state.useDraws=state.useDraws.filter(x=>keys.includes(x));
- const buttons=keys.map(r=>'<button class="'+(state.useDraws.includes(r)?'selected':'')+'" onclick="toggleUseDraw('+JSON.stringify(r).replace(/"/g,'&quot;')+')">'+r+'</button>').join('');
+ const buttons=keys.map(r=>'<button class="'+(state.useDraws.includes(r)?'selected':'')+'" onclick="toggleUseDraw('+JSON.stringify(r).replace(/"/g,'&quot;')+')"><span class="choice-text">'+r+'</span></button>').join('');
  const selected=keys.filter(r=>state.useDraws.includes(r));
  const groups=selected.map(r=>{const ps=d.draws[r].support||[];const idx=keys.indexOf(r);const cls=(keys.length===3&&idx===2)?' support-group center-last':' support-group';return '<div class="'+cls.trim()+'">'+ps.map(p=>'<div class="material-item"><span class="main">'+p+'</span></div>').join('')+'</div>'}).join('');
  const chunks=selected.length?'<div class="selected-chunks"><div class="selected-chunks-title">寫作支援</div><div class="support-groups">'+groups+'</div></div>':'<div class="optional-note">尚未選擇缺點。你也可以直接使用自己的想法完成第二段。</div>';
