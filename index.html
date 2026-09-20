@@ -240,6 +240,172 @@ button{font:inherit}.wrap{width:min(1120px,calc(100% - 32px));margin:0 auto;padd
   .lesson-step-nav .step-num{width:27px;height:27px;font-size:13px;}
 }
 
+
+/* 2026-09-20 second test confirmation fixes */
+.homework-break{display:none}
+.homework-line2{white-space:normal}
+
+/* Pages 4 and 6 match the English-card typography on pages 3 and 5 on all devices. */
+#sum1 .material-select button,
+#sum2 .material-select button{
+  font-size:clamp(22px,2vw,28px);
+  font-weight:800;
+  line-height:1.45;
+}
+
+/* Tablet: keep each numbered circle at a fixed position inside its step button. */
+@media(min-width:621px) and (max-width:1100px){
+  .lesson-step-nav button{
+    display:grid;
+    grid-template-columns:28px minmax(0,1fr);
+    align-items:center;
+    justify-content:stretch;
+    column-gap:7px;
+    text-align:left;
+  }
+  .lesson-step-nav .step-num{grid-column:1;justify-self:center}
+  .lesson-step-nav .step-label{grid-column:2;justify-self:start;text-align:left}
+}
+
+/* Phone + tablet: keep the requested homework line break and align both lines left. */
+@media(max-width:1100px){
+  #home .homework-desc{display:inline-block;text-align:left}
+  #home .homework-desc .homework-break{display:block}
+  #home .homework-desc .homework-line2{white-space:nowrap}
+}
+
+@media(max-width:620px){
+  /* Keep step numbers aligned within each mobile column. */
+  .lesson-step-nav button{
+    display:grid;
+    grid-template-columns:27px minmax(0,1fr);
+    align-items:center;
+    justify-content:stretch;
+    column-gap:6px;
+    text-align:left;
+  }
+  .lesson-step-nav .step-num{grid-column:1;justify-self:center}
+  .lesson-step-nav .step-label{grid-column:2;justify-self:start;text-align:left}
+
+  /* Make expanded teaching explanations easier to read on phones. */
+  .idea-detail{font-size:21px}
+  .idea-detail .label{font-size:20px}
+}
+
+
+/* 2026-09-20 third test confirmation fixes */
+/* Pages 3 and 5: explanatory text uses the same size and bold weight as solution text on all devices. */
+.idea-detail > .detail-text{
+  display:block;
+  font-size:1em;
+  font-weight:800;
+  color:#173f58;
+}
+
+/* Phone pages 4 and 6: center the text block in the card, but left-align wrapped lines within that block. */
+@media(max-width:620px){
+  #sum1 .material-select button .choice-text,
+  #sum2 .material-select button .choice-text{
+    display:block;
+    width:fit-content;
+    max-width:100%;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:left;
+  }
+}
+
+
+/* 2026-09-20 responsive typography and alignment confirmation */
+/* Pages 3 and 5: expanded explanation text is bold and matches solution text. */
+.idea-detail > .detail-text,
+.idea-detail .material-item .main{
+  font-size:1em;
+  font-weight:800;
+  line-height:1.65;
+  color:#173f58;
+}
+
+/* Pages 4 and 6: center the text block inside each card while keeping wrapped lines left-aligned. */
+#sum1 .material-select button,
+#sum2 .material-select button{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:left;
+}
+#sum1 .material-select button .choice-text,
+#sum2 .material-select button .choice-text{
+  display:block;
+  width:fit-content;
+  max-width:100%;
+  margin:0 auto;
+  text-align:left;
+}
+
+/* Pages 4 and 6: enlarge writing-support phrases on desktop, tablet, and phone. */
+#sum1 .selected-chunks .material-item .main,
+#sum2 .selected-chunks .material-item .main{
+  display:block;
+  font-size:clamp(21px,1.85vw,27px);
+  font-weight:800;
+  line-height:1.55;
+  color:#173f58;
+}
+#sum1 .selected-chunks-title,
+#sum2 .selected-chunks-title{
+  font-size:clamp(19px,1.55vw,23px);
+  font-weight:800;
+}
+
+@media(max-width:620px){
+  #sum1 .material-select button,
+  #sum2 .material-select button{
+    font-size:22px;
+    min-height:92px;
+  }
+  #sum1 .selected-chunks .material-item .main,
+  #sum2 .selected-chunks .material-item .main{
+    font-size:21px;
+    line-height:1.55;
+  }
+  #sum1 .selected-chunks-title,
+  #sum2 .selected-chunks-title{font-size:20px}
+}
+
+@media(min-width:621px) and (max-width:1100px){
+  #sum1 .selected-chunks .material-item .main,
+  #sum2 .selected-chunks .material-item .main{font-size:23px}
+}
+
+@media(min-width:1400px){
+  #sum1 .selected-chunks .material-item .main,
+  #sum2 .selected-chunks .material-item .main{font-size:27px}
+}
+
+/* 2026-09-20 desktop step-nav fixed circle position confirmation fix */
+@media(min-width:1101px){
+  .lesson-step-nav button{
+    display:grid;
+    grid-template-columns:28px minmax(0,1fr);
+    align-items:center;
+    justify-content:stretch;
+    column-gap:7px;
+    padding-left:14px;
+    padding-right:8px;
+    text-align:left;
+  }
+  .lesson-step-nav .step-num{
+    grid-column:1;
+    justify-self:center;
+  }
+  .lesson-step-nav .step-label{
+    grid-column:2;
+    justify-self:start;
+    text-align:left;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -249,7 +415,7 @@ button{font:inherit}.wrap{width:min(1120px,calc(100% - 32px));margin:0 auto;padd
 <section id="home" class="page active">
   <div class="grid two">
     <div class="card home-choice"><strong>課堂示範</strong><div>查找資料</div><p class="muted">跟著提示發展想法，完成兩段寫作。</p><button class="btn" onclick="go(1)">開始練習</button></div>
-    <div class="card home-choice"><strong>回家作業</strong><div>Learning by Doing</div><p class="muted">運用練習過的方法，自己完成另一篇作文。</p><button class="btn" onclick="go('hw')">開始作業</button></div>
+    <div class="card home-choice"><strong>回家作業</strong><div>Learning by Doing</div><p class="muted homework-desc">運用練習過的方法，自己完成<span class="homework-break"></span><span class="homework-line2">另一篇作文。</span></p><button class="btn" onclick="go('hw')">開始作業</button></div>
   </div>
   <div style="text-align:center;margin-top:20px"><a class="btn secondary" href="https://oohya330-glitch.github.io/lulu-english-challenge-map/writing.html">← 互動寫作</a></div>
 </section>
@@ -360,7 +526,7 @@ renderLessonStepNav();
 function go(id){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));el(id==='home'?'home':id==='hw'?'hw':id==='done'?'done':'p'+id).classList.add('active');if(id===2)renderMethods();if(id===3)renderReasons();if(id===4)renderWrite1();if(id===5)renderDraws();if(id===6)renderWrite2();if(id===7)renderN2Models();if(id==='hw')renderHW();window.scrollTo({top:0,behavior:'smooth'})}
 function makeChoice(text,selected,onClick){const b=document.createElement('button');b.className='choice'+(selected?' selected':'');b.textContent=text;b.onclick=onClick;return b}
 function renderMethods(){const box=el('methodChoices');box.innerHTML='';methods.forEach(([k,t,d])=>{const b=makeChoice('',state.method===k,()=>{if(state.method===k){state={method:null,reasons:[],draws:[],useReasons:[],useDraws:[]}}else{state={method:k,reasons:[],draws:[],useReasons:[],useDraws:[]}}renderMethods()});b.innerHTML='<strong>'+t+'</strong><span class="muted">'+d+'</span>';box.appendChild(b)});el('p2next').disabled=false}
-function ideaCard(title,info,open,onToggle,type){const wrap=document.createElement('div');wrap.className='idea-card'+(open?' open':'');wrap.style.cursor='pointer';wrap.onclick=onToggle;const head=document.createElement('button');head.className='idea-head';head.textContent=title;head.onclick=(e)=>{e.preventDefault();};wrap.appendChild(head);if(open){const detail=document.createElement('div');detail.className='idea-detail';if(type==='reason'){detail.innerHTML='<span class="label">進一步說明</span>'+info.detail}else{detail.innerHTML='<span class="label">進一步說明</span>'+info.detail+'<div class="material-list"><div class="material-item"><span class="label">解決方法</span><span class="main">'+info.solution+'</span></div></div>'}wrap.appendChild(detail)}return wrap}
+function ideaCard(title,info,open,onToggle,type){const wrap=document.createElement('div');wrap.className='idea-card'+(open?' open':'');wrap.style.cursor='pointer';wrap.onclick=onToggle;const head=document.createElement('button');head.className='idea-head';head.textContent=title;head.onclick=(e)=>{e.preventDefault();};wrap.appendChild(head);if(open){const detail=document.createElement('div');detail.className='idea-detail';if(type==='reason'){detail.innerHTML='<span class="label">進一步說明</span><span class="detail-text">'+info.detail+'</span>'}else{detail.innerHTML='<span class="label">進一步說明</span><span class="detail-text">'+info.detail+'</span>'+'<div class="material-list"><div class="material-item"><span class="label">解決方法</span><span class="main">'+info.solution+'</span></div></div>'}wrap.appendChild(detail)}return wrap}
 function renderReasons(){const box=el('reasonChoices');box.innerHTML='';if(!state.method){el('reasonQ').textContent='你可以直接使用自己的想法，也可以回上一頁選擇一種查找方式查看提示。';box.innerHTML='<div class="optional-note">沒有選擇查找方式也可以繼續。需要支援時，再回上一頁選擇即可。</div>';el('p3next').disabled=false;return}const d=data[state.method], entries=Object.entries(d.reasons), multi=entries.length===2;el('reasonQ').textContent='使用「'+d.name+'」時，可以從哪些理由發展內容？';entries.forEach(([r,info])=>{const open=state.reasons.includes(r);box.appendChild(ideaCard(r,info,open,()=>{if(multi){state.reasons=open?state.reasons.filter(x=>x!==r):[...state.reasons,r]}else{state.reasons=open?[]:[r]}renderReasons()},'reason'))});el('p3next').disabled=false}
 function chunksHTML(arr){return arr.map(([e,c])=>'<div class="chunk"><div class="en">'+e+'</div><div>'+c+'</div></div>').join('')}
 function renderWrite1(){
@@ -368,7 +534,7 @@ function renderWrite1(){
  if(!state.method){box.innerHTML='<div class="optional-note">你沒有選擇查找方式，也可以直接使用自己的想法完成第一段。</div>';return}
  const d=data[state.method], keys=Object.keys(d.reasons);
  state.useReasons=state.useReasons.filter(x=>keys.includes(x));
- const buttons=keys.map(r=>'<button class="'+(state.useReasons.includes(r)?'selected':'')+'" onclick="toggleUseReason('+JSON.stringify(r).replace(/"/g,'&quot;')+')">'+r+'</button>').join('');
+ const buttons=keys.map(r=>'<button class="'+(state.useReasons.includes(r)?'selected':'')+'" onclick="toggleUseReason('+JSON.stringify(r).replace(/"/g,'&quot;')+')"><span class="choice-text">'+r+'</span></button>').join('');
  const selected=keys.filter(r=>state.useReasons.includes(r));
  const groups=selected.map(r=>{const ps=d.reasons[r].support||[];const idx=keys.indexOf(r);const cls=(keys.length===3&&idx===2)?' support-group center-last':' support-group';return '<div class="'+cls.trim()+'">'+ps.map(p=>'<div class="material-item"><span class="main">'+p+'</span></div>').join('')+'</div>'}).join('');
  const chunks=selected.length?'<div class="selected-chunks"><div class="selected-chunks-title">寫作支援</div><div class="support-groups">'+groups+'</div></div>':'<div class="optional-note">尚未選擇理由。你也可以直接使用自己的想法完成第一段。</div>';
@@ -381,7 +547,7 @@ function renderWrite2(){
  if(!state.method){box.innerHTML='<div class="optional-note">你沒有選擇查找方式，也可以直接使用自己的想法完成第二段。</div>';return}
  const d=data[state.method], keys=Object.keys(d.draws);
  state.useDraws=state.useDraws.filter(x=>keys.includes(x));
- const buttons=keys.map(r=>'<button class="'+(state.useDraws.includes(r)?'selected':'')+'" onclick="toggleUseDraw('+JSON.stringify(r).replace(/"/g,'&quot;')+')">'+r+'</button>').join('');
+ const buttons=keys.map(r=>'<button class="'+(state.useDraws.includes(r)?'selected':'')+'" onclick="toggleUseDraw('+JSON.stringify(r).replace(/"/g,'&quot;')+')"><span class="choice-text">'+r+'</span></button>').join('');
  const selected=keys.filter(r=>state.useDraws.includes(r));
  const groups=selected.map(r=>{const ps=d.draws[r].support||[];const idx=keys.indexOf(r);const cls=(keys.length===3&&idx===2)?' support-group center-last':' support-group';return '<div class="'+cls.trim()+'">'+ps.map(p=>'<div class="material-item"><span class="main">'+p+'</span></div>').join('')+'</div>'}).join('');
  const chunks=selected.length?'<div class="selected-chunks"><div class="selected-chunks-title">寫作支援</div><div class="support-groups">'+groups+'</div></div>':'<div class="optional-note">尚未選擇缺點。你也可以直接使用自己的想法完成第二段。</div>';
