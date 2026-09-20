@@ -406,6 +406,122 @@ button{font:inherit}.wrap{width:min(1120px,calc(100% - 32px));margin:0 auto;padd
   }
 }
 
+
+
+/* 2026-09-20 card-content isolation confirmation
+   Card/grid geometry stays unchanged. Only the inner text block is positioned. */
+#methodChoices > *,
+#reasonChoices > *,
+#drawChoices > *,
+#sum1 .material-select > *,
+#sum2 .material-select > *{
+  min-width:0;
+}
+
+/* Method cards: heading centered independently; description gets its own centered content block. */
+#methodChoices .choice{
+  text-align:center;
+}
+#methodChoices .choice > strong{
+  display:block;
+  width:100%;
+  text-align:center;
+}
+#methodChoices .choice .method-desc{
+  display:block;
+  width:100%;
+  text-align:center;
+}
+
+/* Reusable inner content block: shrink to its text, never exceed the card,
+   center the block, and keep wrapped lines left-aligned. */
+#methodChoices .card-text-block,
+#reasonChoices .idea-head .card-text-block,
+#drawChoices .idea-head .card-text-block,
+#sum1 .material-select .card-text-block,
+#sum2 .material-select .card-text-block{
+  display:table;
+  width:auto;
+  max-width:82%;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:left;
+  white-space:normal;
+  overflow-wrap:normal;
+  word-break:normal;
+}
+
+/* Reason/drawback cards: the button remains exactly the same size;
+   only its inner text block is centered. */
+#reasonChoices .idea-head,
+#drawChoices .idea-head{
+  text-align:center;
+}
+
+/* Pages 4 and 6: same content behavior without changing button geometry. */
+#sum1 .material-select button,
+#sum2 .material-select button{
+  text-align:center;
+}
+#sum1 .material-select .choice-text,
+#sum2 .material-select .choice-text{
+  margin-left:auto;
+  margin-right:auto;
+  text-align:left;
+}
+
+/* Give smaller screens a little more usable text width, while keeping the same principle. */
+@media(max-width:1100px){
+  #methodChoices .card-text-block,
+  #reasonChoices .idea-head .card-text-block,
+  #drawChoices .idea-head .card-text-block,
+  #sum1 .material-select .card-text-block,
+  #sum2 .material-select .card-text-block{max-width:88%;}
+}
+@media(max-width:620px){
+  #methodChoices .card-text-block,
+  #reasonChoices .idea-head .card-text-block,
+  #drawChoices .idea-head .card-text-block,
+  #sum1 .material-select .card-text-block,
+  #sum2 .material-select .card-text-block{max-width:92%;}
+}
+
+
+/* 2026-09-20 confirmation: ONLY pages 4 and 6 card text positioning.
+   Keep card/grid geometry unchanged. Center the text block as a whole;
+   wrapped lines remain left-aligned. */
+#sum1 .material-select button,
+#sum2 .material-select button{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:left;
+}
+#sum1 .material-select button .choice-text.card-text-block,
+#sum2 .material-select button .choice-text.card-text-block{
+  display:inline-block;
+  width:auto;
+  max-width:calc(100% - 32px);
+  margin:0;
+  text-align:left;
+  white-space:normal;
+}
+
+/* 2026-09-20 confirmation: page 2 only — center each description block as a unit, keep wrapped lines left-aligned. */
+#methodChoices .choice .method-desc{
+  display:flex;
+  justify-content:center;
+  width:100%;
+  text-align:left;
+}
+#methodChoices .choice .method-desc .card-text-block{
+  display:block;
+  width:max-content;
+  max-width:100%;
+  margin:0;
+  text-align:left;
+  white-space:normal;
+}
 </style>
 </head>
 <body>
@@ -525,8 +641,8 @@ renderLessonStepNav();
 
 function go(id){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));el(id==='home'?'home':id==='hw'?'hw':id==='done'?'done':'p'+id).classList.add('active');if(id===2)renderMethods();if(id===3)renderReasons();if(id===4)renderWrite1();if(id===5)renderDraws();if(id===6)renderWrite2();if(id===7)renderN2Models();if(id==='hw')renderHW();window.scrollTo({top:0,behavior:'smooth'})}
 function makeChoice(text,selected,onClick){const b=document.createElement('button');b.className='choice'+(selected?' selected':'');b.textContent=text;b.onclick=onClick;return b}
-function renderMethods(){const box=el('methodChoices');box.innerHTML='';methods.forEach(([k,t,d])=>{const b=makeChoice('',state.method===k,()=>{if(state.method===k){state={method:null,reasons:[],draws:[],useReasons:[],useDraws:[]}}else{state={method:k,reasons:[],draws:[],useReasons:[],useDraws:[]}}renderMethods()});b.innerHTML='<strong>'+t+'</strong><span class="muted">'+d+'</span>';box.appendChild(b)});el('p2next').disabled=false}
-function ideaCard(title,info,open,onToggle,type){const wrap=document.createElement('div');wrap.className='idea-card'+(open?' open':'');wrap.style.cursor='pointer';wrap.onclick=onToggle;const head=document.createElement('button');head.className='idea-head';head.textContent=title;head.onclick=(e)=>{e.preventDefault();};wrap.appendChild(head);if(open){const detail=document.createElement('div');detail.className='idea-detail';if(type==='reason'){detail.innerHTML='<span class="label">進一步說明</span><span class="detail-text">'+info.detail+'</span>'}else{detail.innerHTML='<span class="label">進一步說明</span><span class="detail-text">'+info.detail+'</span>'+'<div class="material-list"><div class="material-item"><span class="label">解決方法</span><span class="main">'+info.solution+'</span></div></div>'}wrap.appendChild(detail)}return wrap}
+function renderMethods(){const box=el('methodChoices');box.innerHTML='';methods.forEach(([k,t,d])=>{const b=makeChoice('',state.method===k,()=>{if(state.method===k){state={method:null,reasons:[],draws:[],useReasons:[],useDraws:[]}}else{state={method:k,reasons:[],draws:[],useReasons:[],useDraws:[]}}renderMethods()});b.innerHTML='<strong>'+t+'</strong><span class="muted method-desc"><span class="card-text-block">'+d+'</span></span>';box.appendChild(b)});el('p2next').disabled=false}
+function ideaCard(title,info,open,onToggle,type){const wrap=document.createElement('div');wrap.className='idea-card'+(open?' open':'');wrap.style.cursor='pointer';wrap.onclick=onToggle;const head=document.createElement('button');head.className='idea-head';head.innerHTML='<span class="card-text-block">'+title+'</span>';head.onclick=(e)=>{e.preventDefault();};wrap.appendChild(head);if(open){const detail=document.createElement('div');detail.className='idea-detail';if(type==='reason'){detail.innerHTML='<span class="label">進一步說明</span><span class="detail-text">'+info.detail+'</span>'}else{detail.innerHTML='<span class="label">進一步說明</span><span class="detail-text">'+info.detail+'</span>'+'<div class="material-list"><div class="material-item"><span class="label">解決方法</span><span class="main">'+info.solution+'</span></div></div>'}wrap.appendChild(detail)}return wrap}
 function renderReasons(){const box=el('reasonChoices');box.innerHTML='';if(!state.method){el('reasonQ').textContent='你可以直接使用自己的想法，也可以回上一頁選擇一種查找方式查看提示。';box.innerHTML='<div class="optional-note">沒有選擇查找方式也可以繼續。需要支援時，再回上一頁選擇即可。</div>';el('p3next').disabled=false;return}const d=data[state.method], entries=Object.entries(d.reasons), multi=entries.length===2;el('reasonQ').textContent='使用「'+d.name+'」時，可以從哪些理由發展內容？';entries.forEach(([r,info])=>{const open=state.reasons.includes(r);box.appendChild(ideaCard(r,info,open,()=>{if(multi){state.reasons=open?state.reasons.filter(x=>x!==r):[...state.reasons,r]}else{state.reasons=open?[]:[r]}renderReasons()},'reason'))});el('p3next').disabled=false}
 function chunksHTML(arr){return arr.map(([e,c])=>'<div class="chunk"><div class="en">'+e+'</div><div>'+c+'</div></div>').join('')}
 function renderWrite1(){
@@ -534,7 +650,7 @@ function renderWrite1(){
  if(!state.method){box.innerHTML='<div class="optional-note">你沒有選擇查找方式，也可以直接使用自己的想法完成第一段。</div>';return}
  const d=data[state.method], keys=Object.keys(d.reasons);
  state.useReasons=state.useReasons.filter(x=>keys.includes(x));
- const buttons=keys.map(r=>'<button class="'+(state.useReasons.includes(r)?'selected':'')+'" onclick="toggleUseReason('+JSON.stringify(r).replace(/"/g,'&quot;')+')"><span class="choice-text">'+r+'</span></button>').join('');
+ const buttons=keys.map(r=>'<button class="'+(state.useReasons.includes(r)?'selected':'')+'" onclick="toggleUseReason('+JSON.stringify(r).replace(/"/g,'&quot;')+')"><span class="choice-text card-text-block">'+r+'</span></button>').join('');
  const selected=keys.filter(r=>state.useReasons.includes(r));
  const groups=selected.map(r=>{const ps=d.reasons[r].support||[];const idx=keys.indexOf(r);const cls=(keys.length===3&&idx===2)?' support-group center-last':' support-group';return '<div class="'+cls.trim()+'">'+ps.map(p=>'<div class="material-item"><span class="main">'+p+'</span></div>').join('')+'</div>'}).join('');
  const chunks=selected.length?'<div class="selected-chunks"><div class="selected-chunks-title">寫作支援</div><div class="support-groups">'+groups+'</div></div>':'<div class="optional-note">尚未選擇理由。你也可以直接使用自己的想法完成第一段。</div>';
@@ -547,7 +663,7 @@ function renderWrite2(){
  if(!state.method){box.innerHTML='<div class="optional-note">你沒有選擇查找方式，也可以直接使用自己的想法完成第二段。</div>';return}
  const d=data[state.method], keys=Object.keys(d.draws);
  state.useDraws=state.useDraws.filter(x=>keys.includes(x));
- const buttons=keys.map(r=>'<button class="'+(state.useDraws.includes(r)?'selected':'')+'" onclick="toggleUseDraw('+JSON.stringify(r).replace(/"/g,'&quot;')+')"><span class="choice-text">'+r+'</span></button>').join('');
+ const buttons=keys.map(r=>'<button class="'+(state.useDraws.includes(r)?'selected':'')+'" onclick="toggleUseDraw('+JSON.stringify(r).replace(/"/g,'&quot;')+')"><span class="choice-text card-text-block">'+r+'</span></button>').join('');
  const selected=keys.filter(r=>state.useDraws.includes(r));
  const groups=selected.map(r=>{const ps=d.draws[r].support||[];const idx=keys.indexOf(r);const cls=(keys.length===3&&idx===2)?' support-group center-last':' support-group';return '<div class="'+cls.trim()+'">'+ps.map(p=>'<div class="material-item"><span class="main">'+p+'</span></div>').join('')+'</div>'}).join('');
  const chunks=selected.length?'<div class="selected-chunks"><div class="selected-chunks-title">寫作支援</div><div class="support-groups">'+groups+'</div></div>':'<div class="optional-note">尚未選擇缺點。你也可以直接使用自己的想法完成第二段。</div>';
