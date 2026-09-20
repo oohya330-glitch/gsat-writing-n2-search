@@ -292,6 +292,29 @@ button{font:inherit}.wrap{width:min(1120px,calc(100% - 32px));margin:0 auto;padd
   .idea-detail .label{font-size:20px}
 }
 
+
+/* 2026-09-20 third test confirmation fixes */
+/* Pages 3 and 5: explanatory text uses the same size and bold weight as solution text on all devices. */
+.idea-detail > .detail-text{
+  display:block;
+  font-size:1em;
+  font-weight:800;
+  color:#173f58;
+}
+
+/* Phone pages 4 and 6: center the text block in the card, but left-align wrapped lines within that block. */
+@media(max-width:620px){
+  #sum1 .material-select button .choice-text,
+  #sum2 .material-select button .choice-text{
+    display:block;
+    width:fit-content;
+    max-width:100%;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:left;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -412,7 +435,7 @@ renderLessonStepNav();
 function go(id){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));el(id==='home'?'home':id==='hw'?'hw':id==='done'?'done':'p'+id).classList.add('active');if(id===2)renderMethods();if(id===3)renderReasons();if(id===4)renderWrite1();if(id===5)renderDraws();if(id===6)renderWrite2();if(id===7)renderN2Models();if(id==='hw')renderHW();window.scrollTo({top:0,behavior:'smooth'})}
 function makeChoice(text,selected,onClick){const b=document.createElement('button');b.className='choice'+(selected?' selected':'');b.textContent=text;b.onclick=onClick;return b}
 function renderMethods(){const box=el('methodChoices');box.innerHTML='';methods.forEach(([k,t,d])=>{const b=makeChoice('',state.method===k,()=>{if(state.method===k){state={method:null,reasons:[],draws:[],useReasons:[],useDraws:[]}}else{state={method:k,reasons:[],draws:[],useReasons:[],useDraws:[]}}renderMethods()});b.innerHTML='<strong>'+t+'</strong><span class="muted">'+d+'</span>';box.appendChild(b)});el('p2next').disabled=false}
-function ideaCard(title,info,open,onToggle,type){const wrap=document.createElement('div');wrap.className='idea-card'+(open?' open':'');wrap.style.cursor='pointer';wrap.onclick=onToggle;const head=document.createElement('button');head.className='idea-head';head.textContent=title;head.onclick=(e)=>{e.preventDefault();};wrap.appendChild(head);if(open){const detail=document.createElement('div');detail.className='idea-detail';if(type==='reason'){detail.innerHTML='<span class="label">進一步說明</span>'+info.detail}else{detail.innerHTML='<span class="label">進一步說明</span>'+info.detail+'<div class="material-list"><div class="material-item"><span class="label">解決方法</span><span class="main">'+info.solution+'</span></div></div>'}wrap.appendChild(detail)}return wrap}
+function ideaCard(title,info,open,onToggle,type){const wrap=document.createElement('div');wrap.className='idea-card'+(open?' open':'');wrap.style.cursor='pointer';wrap.onclick=onToggle;const head=document.createElement('button');head.className='idea-head';head.textContent=title;head.onclick=(e)=>{e.preventDefault();};wrap.appendChild(head);if(open){const detail=document.createElement('div');detail.className='idea-detail';if(type==='reason'){detail.innerHTML='<span class="label">進一步說明</span><span class="detail-text">'+info.detail+'</span>'}else{detail.innerHTML='<span class="label">進一步說明</span><span class="detail-text">'+info.detail+'</span>'+'<div class="material-list"><div class="material-item"><span class="label">解決方法</span><span class="main">'+info.solution+'</span></div></div>'}wrap.appendChild(detail)}return wrap}
 function renderReasons(){const box=el('reasonChoices');box.innerHTML='';if(!state.method){el('reasonQ').textContent='你可以直接使用自己的想法，也可以回上一頁選擇一種查找方式查看提示。';box.innerHTML='<div class="optional-note">沒有選擇查找方式也可以繼續。需要支援時，再回上一頁選擇即可。</div>';el('p3next').disabled=false;return}const d=data[state.method], entries=Object.entries(d.reasons), multi=entries.length===2;el('reasonQ').textContent='使用「'+d.name+'」時，可以從哪些理由發展內容？';entries.forEach(([r,info])=>{const open=state.reasons.includes(r);box.appendChild(ideaCard(r,info,open,()=>{if(multi){state.reasons=open?state.reasons.filter(x=>x!==r):[...state.reasons,r]}else{state.reasons=open?[]:[r]}renderReasons()},'reason'))});el('p3next').disabled=false}
 function chunksHTML(arr){return arr.map(([e,c])=>'<div class="chunk"><div class="en">'+e+'</div><div>'+c+'</div></div>').join('')}
 function renderWrite1(){
